@@ -1,0 +1,10 @@
+.product-card {
+    border: 2px solid grey;
+    box-shadow: 3px 4px  rgb(39, 209, 135);
+    margin-bottom: 20px
+}
+
+.product-image {
+    width: 10%;
+    float: center
+}
