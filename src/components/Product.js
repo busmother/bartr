@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Button from './Button.js'
-import './stylesheet.css'
+import './product-stylesheet.css'
 
 class Product extends Component {
 
@@ -14,8 +14,8 @@ class Product extends Component {
 
 
         return (
-            <div className="product-card" style={this.productCardStyle}>
-                <img className="product-image" src={this.props.product.image} style={this.productImageStyle}></img>
+            <div className="product-card" >
+                <img className="product-image" src={this.props.product.image} ></img>
                 <h3>{this.props.product.name}</h3>
                 <em><p className="description"> {this.props.product.description}</p></em>
                 <p>{this.props.product.price}</p>
