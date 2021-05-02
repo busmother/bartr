@@ -19,12 +19,14 @@ const Products = () => {
             container 
             direction="row"
             justify="center" 
-            spacing = {4}>
+            spacing = {4}
+            >
                 {products.map((product) => (
                     <Grid 
                     item 
                     key={product.id}
-                    xs={12}>
+                    xs={12}
+                    lg = {3}>
                         <Product product={product} className="product"/>
                     </Grid>
                 ))}
