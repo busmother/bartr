@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import Button from './Button.js'
 import './stylesheet.css'
-// import { Card, CardMedia, CardContent, CardActions, Typography, IconButton} from '@material-ui/core';
-// import { AddShoppingCart } from '@material-ui/icons'
-// import classes  from '*.module.css';
 
-class Product extends Component { //destructure product from the props
+class Product extends Component {
 
     handleClick = (e) => {
         e.preventDefault()
