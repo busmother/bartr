@@ -8,7 +8,7 @@ class App extends Component {
         return (
             <div className="wrap">
                 <div className="header">
-                    Bartr
+                    <h1>Bartr</h1>
                 </div>
                 <nav className="nav">
                     Nav
