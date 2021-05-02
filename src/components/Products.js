@@ -15,9 +15,16 @@ const products = [
 const Products = () => {
     return(
         <main className="container">
-            <Grid conatiner justify="center" spacing = {4}>
+            <Grid 
+            container 
+            direction="row"
+            justify="center" 
+            spacing = {4}>
                 {products.map((product) => (
-                    <Grid item key={product.id}>
+                    <Grid 
+                    item 
+                    key={product.id}
+                    xs={12}>
                         <Product product={product} className="product"/>
                     </Grid>
                 ))}
