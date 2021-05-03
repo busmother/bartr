@@ -6,7 +6,7 @@ class Product extends Component {
 
     handleClick = (e) => {
         e.preventDefault()
-        console.log("you clicked the button")
+        console.log("you clicked the add to cart button")
     }
 
 
