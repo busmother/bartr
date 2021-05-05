@@ -4,6 +4,14 @@ import Cart from './components/Cart.js'
 import './app-stylesheet.css'
 
 class App extends Component {
+
+    componentDidMount(){
+        fetch('http://localhost:3000/api/v1/products')
+        .then(response => response.json())
+        .then(data => console.log("data", data))
+        .catch(error=>console.log("error", error))
+    }
+
     render(){
         return (
             <div className="wrap">
