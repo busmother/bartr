@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { addOrder } from './actions/addOrder'
 
 class Form extends Component {
 
@@ -16,8 +18,9 @@ class Form extends Component {
         })
     }
 
-    handleSubmit = () => {
-
+    handleSubmit = (event) => {
+        event.preventDefault()
+        this.props.addOrder(this.state)
     }
 
     render(){
@@ -42,4 +45,4 @@ class Form extends Component {
 
 }
 
-export default Form
+export default connect(null, {addOrder})(Form)
