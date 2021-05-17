@@ -10,22 +10,27 @@ class Form extends Component {
         areaCode: ''
     }
 
-    handleChange = (e) => {}
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
 
     render(){
         return(
             <div>
                 <form>
-                    <label>Name</label>
-                    <input type='text' placeholder='Name' value = {this.state.name} onChange={this.handleChange}></input>
-                    <label>Street address</label>
-                    <input type='text' placeholder='Street Address' value = {this.state.streetAddress} onChange={this.handleChange}></input>
-                    <label>City</label>
-                    <input type='text' placeholder='City' value = {this.state.city} onChange={this.handleChange}></input>
-                    <label>State</label>
-                    <input type='text' placeholder='State' value = {this.state.state} onChange={this.handleChange}></input>
-                    <label>Area Code</label>
-                    <input type='text' placeholder='Area Code' value = {this.state.areaCode} onChange={this.handleChange}></input>
+                    <label>Name:</label>
+                    <input type='text' placeholder='Name' value = {this.state.name} name='name' onChange={this.handleChange}/><br>
+                    <label>Street address:</label>
+                    <input type='text' placeholder='Street Address' value = {this.state.streetAddress} name='streetAddress' onChange={this.handleChange}/><br>
+                    <label>City:</label>
+                    <input type='text' placeholder='City' value = {this.state.city} name='city' onChange={this.handleChange}/>
+                    <label>State:</label>
+                    <input type='text' placeholder='State' value = {this.state.state} name='state' onChange={this.handleChange}/>
+                    <label>Area Code:</label>
+                    <input type='text' placeholder='Area Code' value = {this.state.areaCode} name='areaCode' onChange={this.handleChange}/>
+                    <input type='submit'
                 </form>
             </div>
         )
