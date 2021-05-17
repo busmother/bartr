@@ -16,10 +16,14 @@ class Form extends Component {
         })
     }
 
+    handleSubmit = () => {
+
+    }
+
     render(){
         return(
             <div>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <label>Name:</label>
                     <input type='text' placeholder='Name' value = {this.state.name} name='name' onChange={this.handleChange}/><br>
                     <label>Street address:</label>
