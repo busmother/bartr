@@ -5,7 +5,7 @@ import { addOrder } from './actions/addOrder'
 class Form extends Component {
 
     state = {
-        name: '',
+        recipient: '',
         streetAddress: '',
         city: '',
         state: '',
@@ -21,6 +21,13 @@ class Form extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.addOrder(this.state)
+        this.setState({
+            recipient: '',
+            streetAddress: '',
+            city: '',
+            state: '',
+            areaCode: ''
+        })
     }
 
     render(){
