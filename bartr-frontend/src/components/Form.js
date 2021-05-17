@@ -27,8 +27,8 @@ class Form extends Component {
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Name:</label>
-                    <input type='text' placeholder='Name' value = {this.state.name} name='name' onChange={this.handleChange}/><br>
+                    <label>Recipient:</label>
+                    <input type='text' placeholder='Recipient' value = {this.state.recipient} name='recipient' onChange={this.handleChange}/><br>
                     <label>Street address:</label>
                     <input type='text' placeholder='Street Address' value = {this.state.streetAddress} name='streetAddress' onChange={this.handleChange}/><br>
                     <label>City:</label>
