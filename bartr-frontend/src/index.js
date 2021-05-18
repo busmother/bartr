@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux'
+
 import {createStore, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
-import {Provider} from 'react-redux'
-// import productReducer from './reducers/productReducer'
-import reducer from './reducers/index'
+
+import combineReducers from './reducers/index'
 
 import App from './App';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; 
 
-let store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
+let store = createStore(combineReducers, composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
     <Provider store={store}>

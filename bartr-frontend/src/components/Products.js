@@ -5,7 +5,7 @@ import './products-stylesheet.css'
 
 
 const Products = (props) => {
-    console.log("props", {props})
+    console.log("props from Products", {props})
     return(
         <main className="container">
             <Grid 
@@ -13,8 +13,8 @@ const Products = (props) => {
             direction="row"
             justify="center" 
             spacing = {2}>
-            {props.products.data &&
-            props.products.data.map((product) => (
+            {props.products &&
+            props.products.map((product) => (
 
                 <Grid
                 item

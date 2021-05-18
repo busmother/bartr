@@ -10,6 +10,7 @@ class ProductsContainer extends React.Component {
     };
 
     render() {
+        console.log("props from ProductsContainer", {props: this.props})
         return(
             <div>
                 <Products products={this.props.products} addToCart={this.props.addToCart}/>
@@ -20,8 +21,9 @@ class ProductsContainer extends React.Component {
 }
 
 const mapStateToProps = state => {
+    console.log("state", state)
     return {
-        products: state.products
+        products: state.productReducer.products.data
     }
 }
 
