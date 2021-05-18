@@ -13,7 +13,7 @@ const Products = (props) => {
             direction="row"
             justify="center" 
             spacing = {2}>
-            {props.products.data && 
+            {props.products.data &&
             props.products.data.map((product) => (
 
                 <Grid
