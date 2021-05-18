@@ -9,6 +9,8 @@ class ProductsContainer extends React.Component {
         this.props.fetchProducts()
     };
 
+    
+
     render() {
         console.log("props from ProductsContainer", {props: this.props})
         return(

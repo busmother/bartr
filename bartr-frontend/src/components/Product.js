@@ -9,7 +9,6 @@ class Product extends Component {
         console.log("you clicked the add to cart button")
     }
 
-
     render(){
         return (
             <div className="product-card" >

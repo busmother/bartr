@@ -4,8 +4,9 @@ import Product from './Product.js'
 import './products-stylesheet.css'
 
 
+
 const Products = (props) => {
-    console.log("props from Products", {props})
+
     return(
         <main className="container">
             <Grid 
