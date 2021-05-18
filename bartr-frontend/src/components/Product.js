@@ -18,7 +18,7 @@ class Product extends Component {
                 <em><p className="description"> {this.props.product.description}</p></em>
                 <p>{this.props.product.attributes.price}</p>
                 
-                <Button handleClick={this.handleClick} label="Add to cart"> </Button>
+                <Button handleClick={this.props.addToCart} label="Add to cart"> </Button>
             </div>
         )
     }

@@ -5,6 +5,11 @@ import ProductsContainer from './components/ProductsContainer.js'
 
 class App extends Component {
 
+    addToCart = (e) => {
+        e.preventDefault()
+        console.log("this went all the way up the tree")
+    }
+
     render(){
         return (
             <div className="wrap">
@@ -15,7 +20,7 @@ class App extends Component {
                     Nav
                 </nav>
                 <div className="main"> 
-                    <ProductsContainer/>   
+                    <ProductsContainer addToCart={this.addToCart}/>   
                 </div>
                 <aside className="sidebar">
                     <Cart/>
