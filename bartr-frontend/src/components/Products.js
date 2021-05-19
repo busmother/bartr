@@ -28,7 +28,7 @@ const Products = (props) => {
                 </Grid>
 
             ))}
-            >
+            
             </Grid>
         </main>
     )

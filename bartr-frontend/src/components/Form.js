@@ -44,7 +44,7 @@ class Form extends Component {
                     <input type='text' placeholder='State' value = {this.state.state} name='state' onChange={this.handleChange}/>
                     <label>Area Code:</label>
                     <input type='text' placeholder='Area Code' value = {this.state.areaCode} name='areaCode' onChange={this.handleChange}/>
-                    <input type='submit'
+                    <input type='submit'></input>
                 </form>
             </div>
         )

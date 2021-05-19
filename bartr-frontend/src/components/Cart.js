@@ -1,6 +1,5 @@
 import { Grid } from '@material-ui/core'
 import React, { Component } from 'react'
-import PopUp from './PopUp';
 import Button from './Button.js'
 
 const items = [
@@ -15,9 +14,6 @@ class Cart extends Component {
     }
 
     render(props){
-
-        console.log("props from Cart", props)
-
         return(
             <div>
                 <p>Hi there! I'm the cart!</p>
@@ -32,9 +28,6 @@ class Cart extends Component {
 
                 ))}
                 </ul>
-                <div>
-                    {this.props.open ? <PopUp open={this.props.open} /> : null }
-                </div>
                 <Button handleClick={this.handleClick} label="Checkout"/>
             </div>
         )

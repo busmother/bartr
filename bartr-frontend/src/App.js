@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Cart from './components/Cart.js'
 import './app-stylesheet.css'
-import ProductsContainer from './components/ProductsContainer.js'
+import ProductsContainer from './components/ProductsContainer'
+import PopUp from './components/PopUp'
 
 
 class App extends Component {
@@ -21,19 +22,21 @@ class App extends Component {
     }
 
     render(){
+        console.log("state in App", this.state)
         return (
             <div className="wrap">
                 <div className="header">
                     <h1>Bartr</h1>
                 </div>
                 <nav className="nav">
-                    Nav
+                {this.state.open ? <PopUp open={this.state.open} /> : null }  
+                <br></br>
                 </nav>
                 <div className="main"> 
-                    <ProductsContainer addToCart={this.addToCart}/>   
+                    <ProductsContainer addToCart={this.addToCart}/> 
                 </div>
                 <aside className="sidebar">
-                    <Cart open={this.open} togglePop={this.togglePop}/>
+                    <Cart togglePop={this.togglePop}/>
                 </aside>
                 <footer className="footer">
                     Footer

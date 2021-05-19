@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class PopUp extends Component {
 
     handleClick = () => {
-        this.props.toggle();
+        this.props.togglePop();
     };
 
     render() {
