@@ -1,8 +1,8 @@
 export const addItem = (data) => { 
     return (dispatch) => {
-        fetch('http://localhost:3000/api/v1/users/:id/orders/:id/items', {
+        fetch('http://localhost:3000/api/v1/users/1/orders/1/items', {
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
                 'Accept': 'application/json'
             }, 
             method: 'POST',
