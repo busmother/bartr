@@ -9,7 +9,9 @@ export const addItem = (data) => {
             body: JSON.stringify(data)
         })
         .then(response => response.json())
-        .then(order => dispatch({type: 'ADD_ITEM', payload: item}))
+        .then(item => console.log("item", item))
+        // .then(order => dispatch({type: 'ADD_ITEM', payload: item}))
+        .catch(error=>console.log("error", error))
     }
 }
 

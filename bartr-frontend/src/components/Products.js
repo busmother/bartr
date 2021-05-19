@@ -1,6 +1,7 @@
 import React from 'react';
 import {Grid} from '@material-ui/core';
-import Product from './Product.js'
+// import Product from './Product.js';
+import Product from './Product';
 import './products-stylesheet.css'
 
 
