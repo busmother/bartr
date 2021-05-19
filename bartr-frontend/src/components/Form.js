@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addOrder } from './actions/addOrder'
+import { addOrder } from '.././actions/addOrder'
 
 class Form extends Component {
 
@@ -35,9 +35,9 @@ class Form extends Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <label>Recipient:</label>
-                    <input type='text' placeholder='Recipient' value = {this.state.recipient} name='recipient' onChange={this.handleChange}/><br>
+                    <input type='text' placeholder='Recipient' value = {this.state.recipient} name='recipient' onChange={this.handleChange}/><br></br>
                     <label>Street address:</label>
-                    <input type='text' placeholder='Street Address' value = {this.state.streetAddress} name='streetAddress' onChange={this.handleChange}/><br>
+                    <input type='text' placeholder='Street Address' value = {this.state.streetAddress} name='streetAddress' onChange={this.handleChange}/><br></br>
                     <label>City:</label>
                     <input type='text' placeholder='City' value = {this.state.city} name='city' onChange={this.handleChange}/>
                     <label>State:</label>
