@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './popup-stylesheet.css'
 
 class PopUp extends Component {
 
@@ -8,7 +9,7 @@ class PopUp extends Component {
 
     render() {
         return (
-            <div className="modal">
+            <div className="popup">
                 <div className="modal_content">
                     <span className="close" onClick={this.handleClick}>&times;
                     </span>

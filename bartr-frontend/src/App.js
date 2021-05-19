@@ -25,11 +25,11 @@ class App extends Component {
         console.log("state in App", this.state)
         return (
             <div className="wrap">
+                {this.state.open ? <PopUp open={this.state.open} /> : null }  
                 <div className="header">
                     <h1>Bartr</h1>
                 </div>
                 <nav className="nav">
-                {this.state.open ? <PopUp open={this.state.open} /> : null }  
                 <br></br>
                 </nav>
                 <div className="main"> 
