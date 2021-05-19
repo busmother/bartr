@@ -12,7 +12,6 @@ class ProductsContainer extends React.Component {
     
 
     render() {
-        console.log("props from ProductsContainer", {props: this.props})
         return(
             <div>
                 <Products products={this.props.products} addToCart={this.props.addToCart}/>

@@ -3,11 +3,21 @@ import Cart from './components/Cart.js'
 import './app-stylesheet.css'
 import ProductsContainer from './components/ProductsContainer.js'
 
+
 class App extends Component {
 
-    addToCart = (e) => {
-        e.preventDefault()
-        console.log("this went all the way up the tree")
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false
+        };
+        this.togglePop = this.togglePop.bind(this);
+    }
+
+    togglePop = () => {
+        this.setState(state => ({
+            open: !state.open
+        }));
     }
 
     render(){
@@ -23,7 +33,7 @@ class App extends Component {
                     <ProductsContainer addToCart={this.addToCart}/>   
                 </div>
                 <aside className="sidebar">
-                    <Cart/>
+                    <Cart open={this.open} togglePop={this.togglePop}/>
                 </aside>
                 <footer className="footer">
                     Footer
@@ -32,10 +42,5 @@ class App extends Component {
         )
     }
 }
-
-
-// export default connect(mapStateToProps, {fetchProducts})(App)
-
-// export default connect(null, {fetchProducts})(App)
 
 export default App;
