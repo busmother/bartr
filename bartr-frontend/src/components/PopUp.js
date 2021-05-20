@@ -5,7 +5,7 @@ import Form from './Form'
 class PopUp extends Component {
 
     handleClick = () => {
-        this.props.togglePop();
+        this.state.togglePop();
     };
 
     render() {
@@ -14,7 +14,7 @@ class PopUp extends Component {
                 <div className="modal_content">
                     <span className="close" onClick={this.handleClick}>&times;
                     </span>
-                    <p>Hello this is the pop up!</p>
+                    <p>Enter your shipping info:</p>
                     <Form />
                 </div>
             </div>

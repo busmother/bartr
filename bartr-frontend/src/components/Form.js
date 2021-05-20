@@ -35,15 +35,15 @@ class Form extends Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <label>Recipient:</label>
-                    <input type='text' placeholder='Recipient' value = {this.state.recipient} name='recipient' onChange={this.handleChange}/><br></br>
+                    <input type='text' placeholder='Recipient' value = {this.state.recipient} name='recipient' onChange={this.handleChange}/><br></br><br></br>
                     <label>Street address:</label>
-                    <input type='text' placeholder='Street Address' value = {this.state.streetAddress} name='streetAddress' onChange={this.handleChange}/><br></br>
+                    <input type='text' placeholder='Street Address' value = {this.state.streetAddress} name='streetAddress' onChange={this.handleChange}/><br></br><br></br>
                     <label>City:</label>
                     <input type='text' placeholder='City' value = {this.state.city} name='city' onChange={this.handleChange}/>
-                    <label>State:</label>
+                    <label>   State:</label>
                     <input type='text' placeholder='State' value = {this.state.state} name='state' onChange={this.handleChange}/>
-                    <label>Area Code:</label>
-                    <input type='text' placeholder='Area Code' value = {this.state.areaCode} name='areaCode' onChange={this.handleChange}/>
+                    <label>   Area Code:</label>
+                    <input type='text' placeholder='Area Code' value = {this.state.areaCode} name='areaCode' onChange={this.handleChange}/><br></br><br></br><br></br>
                     <input type='submit'></input>
                 </form>
             </div>

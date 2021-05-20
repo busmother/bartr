@@ -9,7 +9,7 @@ const Product = ({ product }) => {
 
     return(
         <div className="product-card" >
-        <img className="product-image" src={product.attributes.image} ></img>
+        <img className="product-image" src={product.attributes.image} alt={"product"}></img>
         <h3>{product.attributes.name}</h3>
         <em><p className="description"> {product.description}</p></em>
         <p>{product.attributes.price}</p>
@@ -18,6 +18,14 @@ const Product = ({ product }) => {
     </div>
     )
 
+}
+
+Product.defaultProps = {
+    name: "name",
+    description: "missing description, whoops!",
+    image: "https://static.thenounproject.com/png/82078-200.png",
+    price: "Everything for a price",
+    availability: "false"
 }
 
 export default Product
