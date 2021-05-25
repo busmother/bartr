@@ -8,7 +8,6 @@ class ProductsContainer extends React.Component {
     componentDidMount() {
         this.props.fetchProducts()
     };
-
     
 
     render() {
@@ -22,7 +21,7 @@ class ProductsContainer extends React.Component {
 }
 
 const mapStateToProps = state => {
-    console.log("state", state)
+
     return {
         products: state.productReducer.products.data
     }

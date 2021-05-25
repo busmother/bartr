@@ -21,8 +21,23 @@ class App extends Component {
         }));
     }
 
+    addToCart = () => {
+        const configurationObject = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+    
+            body: JSON.stringify({ 
+                "product_id": //the current product id that we're clicking
+                "order_id": recipient_id,
+            })
+        }
+    }
+
     render(){
-        console.log("state in App", this.state)
+        
         return (
             <div className="wrap">
                 {this.state.open ? <PopUp open={this.state.open} /> : null }  

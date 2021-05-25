@@ -6,6 +6,10 @@ const items = [
     {id: 1, name: `insulin`, price: `everything at a price`}
 ]
 
+export const fetchItems = () => {
+    console.log ("now we're fetching items!")
+}
+
 class Cart extends Component {
 
     handleClick = (e) => {
@@ -16,14 +20,14 @@ class Cart extends Component {
     render(props){
         return(
             <div>
-                <p>Hi there! I'm the cart!</p>
+                <p className="cart-header"> Hi there! I'm the cart!</p>
                 <ul>
                 {items.map((item) => (
                     <Grid
                     item
                     key={item.id}
                     >
-                        <li>{item.name}, {item.price}</li>
+                        <li>{item.name} - {item.price}</li>
                     </Grid>
 
                 ))}
