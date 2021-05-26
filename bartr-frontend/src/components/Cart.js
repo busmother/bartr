@@ -6,10 +6,6 @@ const items = [
     {id: 1, name: `insulin`, price: `everything at a price`}
 ]
 
-export const fetchItems = () => {
-    console.log ("now we're fetching items!")
-}
-
 class Cart extends Component {
 
     handleClick = (e) => {

@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import {Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+
 import Cart from './components/Cart.js'
 import './app-stylesheet.css'
 import ProductsContainer from './components/ProductsContainer'
@@ -21,24 +23,10 @@ class App extends Component {
         }));
     }
 
-    addToCart = () => {
-        const configurationObject = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-    
-            body: JSON.stringify({ 
-                "product_id": //the current product id that we're clicking
-                "order_id": recipient_id,
-            })
-        }
-    }
-
     render(){
         
         return (
+            <Router>
             <div className="wrap">
                 {this.state.open ? <PopUp open={this.state.open} /> : null }  
                 <div className="header">
@@ -46,17 +34,23 @@ class App extends Component {
                 </div>
                 <nav className="nav">
                 <br></br>
+                <br></br>
                 </nav>
                 <div className="main"> 
-                    <ProductsContainer addToCart={this.addToCart}/> 
+                <Switch>
+                    <Route path = '/cart' component = {Cart}/>
+                    <Route path = '/' component = {ProductsContainer}/>
+                </Switch>
+                    {/* <ProductsContainer addToCart={this.addToCart}/>  */}
                 </div>
                 <aside className="sidebar">
-                    <Cart togglePop={this.togglePop}/>
+                <Cart togglePop={this.togglePop}/>
                 </aside>
                 <footer className="footer">
                     Footer
                 </footer>
             </div>
+            </Router>
         )
     }
 }
