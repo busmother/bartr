@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+import {Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom'
 
 import Cart from './components/Cart.js'
 import './app-stylesheet.css'
@@ -34,6 +34,11 @@ class App extends Component {
                 </div>
                 <nav className="nav">
                 <br></br>
+                <Link to="/">Products </Link>
+                <Link to="/cart">Cart </Link>
+                Shipping info 
+                Checkout 
+                Switch user
                 <br></br>
                 </nav>
                 <div className="main"> 
@@ -41,7 +46,6 @@ class App extends Component {
                     <Route path = '/cart' component = {Cart}/>
                     <Route path = '/' component = {ProductsContainer}/>
                 </Switch>
-                    {/* <ProductsContainer addToCart={this.addToCart}/>  */}
                 </div>
                 <aside className="sidebar">
                 <Cart togglePop={this.togglePop}/>
