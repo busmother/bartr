@@ -33,6 +33,8 @@ class App extends Component {
             return <div>You're signed in!</div>
         }if(this.props.status === "rejected"){
             return <div>Oops you're not logged in</div>
+        }else{
+            return <div>This is the footer</div>
         }
     }
 
@@ -64,7 +66,7 @@ class App extends Component {
                 <Cart togglePop={this.togglePop}/>
                 </aside>
                 <footer className="footer">
-                    Footer
+                    <p>{this.displayLogin}</p>
                 </footer>
             </div>
             </Router>
