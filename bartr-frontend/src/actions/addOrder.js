@@ -6,7 +6,18 @@ export const addOrder = (data) => {
                 'Accept': 'application/json'
             }, 
             method: 'POST',
-            body: JSON.stringify(data)
+            body: JSON.stringify({
+                // order: { 
+                //     user_id: {user_id: user.id},
+                //     open: {open: true},
+                //     recipient: {recipient: recipient},
+                //     street_address: {street_address: street_address},
+                //     city: {city: city},
+                //     state: {state: state},
+                //     area_code: {area_code: area_code}
+                // },
+                // user: {username: user}
+            })
         })
         .then(response => response.json())
         .then(order => dispatch({type: 'ADD_ORDER', payload: order}))
