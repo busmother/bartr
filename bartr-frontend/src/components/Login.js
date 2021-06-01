@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import {connect} from 'react'
-export default class Login extends Component {
+import {login} from '../actions/user'
+
+class Login extends Component {
 
     state = {username: ""};
 
@@ -31,3 +33,5 @@ export default class Login extends Component {
         );
     }
 }
+
+export default connect(null, {login})(Login);

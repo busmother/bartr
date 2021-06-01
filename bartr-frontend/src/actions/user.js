@@ -10,3 +10,8 @@ export const setStatus = () => {
 export const login = (user) => {
     return {type: "setUser", payload: user}
 }
+
+export const logout = () => {
+    window.localStorage.removeItem("username", )
+    return {type: "logout"}
+}

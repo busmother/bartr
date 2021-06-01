@@ -7,7 +7,7 @@ import ProductsContainer from './components/ProductsContainer'
 import PopUp from './components/PopUp'
 import Login from './components/Login'
 import { connect } from 'react-redux'
-import { setStatus } from "./actions/user"
+import { setStatus, logout } from "./actions/user"
 
 
 class App extends Component {
@@ -32,7 +32,13 @@ class App extends Component {
         }if(this.props.status === "pending"){
             return <div>Loading...</div>
         }if(this.props.status === "resolved"){
-            return <div>You're signed in!</div>
+            return 
+            <div>
+                <p>
+                Welcome {this.props.username}
+                </p>
+                <button onClick={this.props.logout}>Logout</button>
+            </div>
         }if(this.props.status === "rejected"){
             return <div>Oops you're not logged in</div>
         }else{
