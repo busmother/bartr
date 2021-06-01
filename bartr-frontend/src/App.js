@@ -5,6 +5,7 @@ import Cart from './components/Cart.js'
 import './app-stylesheet.css'
 import ProductsContainer from './components/ProductsContainer'
 import PopUp from './components/PopUp'
+import Login from './components/Login'
 
 
 class App extends Component {
@@ -21,6 +22,18 @@ class App extends Component {
         this.setState(state => ({
             open: !state.open
         }));
+    }
+
+    displayLogin = () => {
+        if(this.props.status === "idle"){
+            return <Login></Login>
+        }if(this.props.status === "pending"){
+            return <div>Loading...</div>
+        }if(this.props.status === "resolved"){
+            return <div>You're signed in!</div>
+        }if(this.props.status === "rejected"){
+            return <div>Oops you're not logged in</div>
+        }
     }
 
     render(){
