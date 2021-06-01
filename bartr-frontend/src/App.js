@@ -6,6 +6,8 @@ import './app-stylesheet.css'
 import ProductsContainer from './components/ProductsContainer'
 import PopUp from './components/PopUp'
 import Login from './components/Login'
+import { connect } from 'react-redux'
+import { setStatus } from "./actions/user"
 
 
 class App extends Component {
@@ -74,4 +76,6 @@ class App extends Component {
     }
 }
 
-export default App;
+export default connect((state) => {
+    return {status: state.user.status};
+}, {setStatus})(App);
