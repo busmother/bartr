@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import {connect} from 'react'
-import {login} from '../actions/user'
+import { login } from '.././actions/user'
 
 class Login extends Component {
 
-    state = {username: ""};
+    state = {
+        username: ""
+    }
 
     handleChange = (e) => {
         this.setState({[e.target.name]: e.target.value})
@@ -12,8 +14,9 @@ class Login extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.login(this.state)
-    }
+        console.log(this.state)
+        // this.props.login(this.state.username)
+    };
 
     render () {
         return(
@@ -34,4 +37,17 @@ class Login extends Component {
     }
 }
 
-export default connect(null, {login})(Login);
+const mapStateToProps = state => {
+    return{
+        username: state.userReducer.user.username
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return{
+        login: (user) => dispatch({type: "setUser", payload: user})
+    }
+}
+
+export default Login
+// export default connect(mapStateToProps, mapDispatchToProps)(Login);

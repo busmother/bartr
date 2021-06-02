@@ -15,7 +15,10 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            open: false
+            open: false,
+            user: {
+                status: "idle"
+            }
         };
         this.togglePop = this.togglePop.bind(this);
     }
@@ -32,13 +35,14 @@ class App extends Component {
         }if(this.props.status === "pending"){
             return <div>Loading...</div>
         }if(this.props.status === "resolved"){
-            return 
+            return (
             <div>
                 <p>
                 Welcome {this.props.username}
                 </p>
-                <button onClick={this.props.logout}>Logout</button>
+                <button onClick={this.logout}>Logout</button>
             </div>
+            );
         }if(this.props.status === "rejected"){
             return <div>Oops you're not logged in</div>
         }else{
@@ -61,11 +65,12 @@ class App extends Component {
                 <Link to="/cart">Cart </Link>
                 Shipping info 
                 Checkout 
-                Switch user
+                <Link to="/login">Logout</Link>
                 <br></br>
                 </nav>
                 <div className="main"> 
                 <Switch>
+                    <Route path = '/login' component = {Login}/>
                     <Route path = '/cart' component = {Cart}/>
                     <Route path = '/' component = {ProductsContainer}/>
                 </Switch>
@@ -82,6 +87,8 @@ class App extends Component {
     }
 }
 
-export default connect((state) => {
-    return {status: state.user.status};
-}, {setStatus})(App);
+// export default connect((state) => {
+//     return {status: state.user.status}
+// }, {setStatus})(App);
+
+export default App

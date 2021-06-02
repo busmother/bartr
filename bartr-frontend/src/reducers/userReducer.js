@@ -10,6 +10,5 @@ export default (state = { status: "pending" }, action) => {
             return { status: "idle"}
         default:
             return state;
-
     }
 }
