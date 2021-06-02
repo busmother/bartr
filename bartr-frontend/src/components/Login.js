@@ -49,5 +49,5 @@ const mapDispatchToProps = (dispatch) => {
     })
 }
 
-// export default Login
-export default connect(null, mapDispatchToProps)(Login);
+export default Login
+// export default connect(null, mapDispatchToProps)(Login);

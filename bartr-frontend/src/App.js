@@ -61,14 +61,17 @@ class App extends Component {
                 </div>
                 <nav className="nav">
                 <br></br>
-                <Link to="/">Products </Link>
-                <Link to="/cart">Cart </Link>
-                Shipping info 
-                Checkout 
-                <Link to="/login">Logout</Link>
+                <ul className="nav-list">
+                    <li className="nav-link"><Link to="/">Products </Link></li>
+                    <li className="nav-link"><Link to="/cart">Cart </Link></li>
+                    <li className="nav-link"> Shipping info </li>
+                    <li className="nav-link">Checkout</li>
+                    <li className="nav-link"><Link to="/login">Logout</Link></li>
+                    <li className="nav-link">{this.displayLogin}</li>
+                </ul>
                 <br></br>
                 </nav>
-                <div className="main"> 
+                <div className="main">
                 <Switch>
                     <Route path = '/login' component = {Login}/>
                     <Route path = '/cart' component = {Cart}/>
@@ -79,7 +82,7 @@ class App extends Component {
                 <Cart togglePop={this.togglePop}/>
                 </aside>
                 <footer className="footer">
-                    <p>{this.displayLogin}</p>
+                    <div>Footer</div>
                 </footer>
             </div>
             </Router>
@@ -88,7 +91,7 @@ class App extends Component {
 }
 
 // export default connect((state) => {
-//     return {status: state.user.status}
+//     return { status: state.user.status }
 // }, {setStatus})(App);
 
 export default App
