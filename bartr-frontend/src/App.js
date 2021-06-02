@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom'
 
+
 import Cart from './components/Cart.js'
 import './app-stylesheet.css'
 import ProductsContainer from './components/ProductsContainer'
@@ -64,8 +65,8 @@ class App extends Component {
                 <ul className="nav-list">
                     <li className="nav-link"><Link to="/">Products </Link></li>
                     <li className="nav-link"><Link to="/cart">Cart </Link></li>
-                    <li className="nav-link"> Shipping info </li>
                     <li className="nav-link">Checkout</li>
+                    <li className="nav-link"> Past Orders </li>
                     <li className="nav-link"><Link to="/login">Logout</Link></li>
                     <li className="nav-link">{this.displayLogin}</li>
                 </ul>
@@ -77,7 +78,7 @@ class App extends Component {
                     <Route path = '/cart' component = {Cart}/>
                     <Route path = '/' component = {ProductsContainer}/>
                 </Switch>
-                </div>
+            </div>
                 <aside className="sidebar">
                 <Cart togglePop={this.togglePop}/>
                 </aside>

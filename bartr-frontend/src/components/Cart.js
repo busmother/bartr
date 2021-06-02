@@ -1,5 +1,8 @@
-import { Grid } from '@material-ui/core'
 import React, { Component } from 'react'
+import { Grid } from '@material-ui/core'
+import { CSSTransition } from 'react-transition-group'
+
+import './cart-stylesheet.css'
 import Button from './Button.js'
 
 const items = [
@@ -17,6 +20,7 @@ class Cart extends Component {
         return(
             <div>
                 <p className="cart-header"> Hi there! I'm the cart!</p>
+                <CSSTransition transitionName="animation">
                 <ul>
                 {items.map((item) => (
                     <Grid
@@ -28,6 +32,7 @@ class Cart extends Component {
 
                 ))}
                 </ul>
+                </CSSTransition>
                 <Button handleClick={this.handleClick} label="Checkout"/>
             </div>
         )
