@@ -59,6 +59,7 @@ class App extends Component {
                 {this.state.open ? <PopUp open={this.state.open} /> : null }  
                 <div className="header">
                     <h1>Bartr</h1>
+                    <h2>Hi </h2>
                 </div>
                 <nav className="nav">
                 <br></br>
@@ -91,8 +92,7 @@ class App extends Component {
     }
 }
 
-// export default connect((state) => {
-//     return { status: state.user.status }
-// }, {setStatus})(App);
-
-export default App
+export default connect((state) => {
+    console.log("state from App", state)
+    return { status: state.userReducer.status }
+}, {setStatus})(App);
