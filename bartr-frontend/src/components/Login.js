@@ -14,8 +14,8 @@ class Login extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state)
-        // this.props.login(this.state.username)
+        console.log(this.props)
+        this.props.login(this.state.username)
     };
 
     render () {
@@ -37,17 +37,17 @@ class Login extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return{
-        username: state.userReducer.user.username
-    }
-}
+// const mapStateToProps = state => {
+//     return{
+//         username: state.userReducer.user.username
+//     }
+// }
 
 const mapDispatchToProps = (dispatch) => {
-    return{
+    return({
         login: (user) => dispatch({type: "setUser", payload: user})
-    }
+    })
 }
 
-export default Login
-// export default connect(mapStateToProps, mapDispatchToProps)(Login);
+// export default Login
+export default connect(null, mapDispatchToProps)(Login);
