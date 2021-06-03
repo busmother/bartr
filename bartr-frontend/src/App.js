@@ -31,11 +31,12 @@ class App extends Component {
     }
 
     displayLogin = () => {
-        if(this.props.status === "idle"){
+
+        if(this.props.user.status === "idle"){
             return <Login></Login>
-        }if(this.props.status === "pending"){
+        }if(this.props.user.status === "pending"){
             return <div>Loading...</div>
-        }if(this.props.status === "resolved"){
+        }if(this.props.user.status === "resolved"){
             return (
             <div>
                 <p>
@@ -44,22 +45,28 @@ class App extends Component {
                 <button onClick={this.logout}>Logout</button>
             </div>
             );
-        }if(this.props.status === "rejected"){
+        }if(this.props.user.status === "rejected"){
             return <div>Oops you're not logged in</div>
         }else{
             return <div>This is the footer</div>
         }
     }
 
+    componentDidMount = () => this.props.setStatus()
+    //what other lifecycle events could do this? 
+    //componentDidUpdate creates infinite loop, can it take conditions?
+
+
     render(){
-        
+        console.log("this.props.user", this.props.user)
         return (
             <Router>
             <div className="wrap">
                 {this.state.open ? <PopUp open={this.state.open} /> : null }  
                 <div className="header">
                     <h1>Bartr</h1>
-                    <h2>Hi </h2>
+                    <h2>Hi {this.props.user.username.username}</h2> 
+                    {/* ^this only updates when you refresh, so this info needs a condition and componentDidUpdate */}
                 </div>
                 <nav className="nav">
                 <br></br>
@@ -69,7 +76,6 @@ class App extends Component {
                     <li className="nav-link">Checkout</li>
                     <li className="nav-link"> Past Orders </li>
                     <li className="nav-link"><Link to="/login">Logout</Link></li>
-                    <li className="nav-link">{this.displayLogin}</li>
                 </ul>
                 <br></br>
                 </nav>
@@ -84,7 +90,7 @@ class App extends Component {
                 <Cart togglePop={this.togglePop}/>
                 </aside>
                 <footer className="footer">
-                    <div>Footer</div>
+                    <div>{this.displayLogin()}</div>
                 </footer>
             </div>
             </Router>
@@ -93,6 +99,5 @@ class App extends Component {
 }
 
 export default connect((state) => {
-    console.log("state from App", state)
-    return { status: state.userReducer.status }
+    return { user: state.userReducer.user }
 }, {setStatus})(App);

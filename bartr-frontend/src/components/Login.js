@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import {connect} from 'react'
+import { connect } from 'react-redux'
 import { login } from '.././actions/user'
 
 class Login extends Component {
 
     state = {
-        username: ""
+        username: "Brad"
     }
 
     handleChange = (e) => {
@@ -14,7 +14,6 @@ class Login extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.props)
         this.props.login(this.state.username)
     };
 
@@ -37,17 +36,16 @@ class Login extends Component {
     }
 }
 
-// const mapStateToProps = state => {
-//     return{
-//         username: state.userReducer.user.username
-//     }
-// }
+const mapStateToProps = state => {
+    return{
+        username: state.userReducer.user.username
+    }
+}
 
 const mapDispatchToProps = (dispatch) => {
     return({
-        login: (user) => dispatch({type: "setUser", payload: user})
+        login
     })
 }
 
-export default Login
-// export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
