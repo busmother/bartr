@@ -48,14 +48,24 @@ class App extends Component {
         }if(this.props.user.status === "rejected"){
             return <div>Oops you're not logged in</div>
         }else{
-            return <div>This is the footer</div>
+            return <div>An unforeseen misfortune has occured.</div>
         }
     }
 
-    componentDidMount = () => this.props.setStatus()
+    componentDidMount = () => {
+        this.props.setStatus()
+        this.setState()
+    }
     //what other lifecycle events could do this? 
     //componentDidUpdate creates infinite loop, can it take conditions?
 
+    sayHi = () => {
+        return(`Hi ${this.props.user.username.username}`)
+    }
+
+    componentWillUpdate(){
+        this.sayHi()
+    }
 
     render(){
         console.log("this.props.user", this.props.user)
@@ -65,7 +75,8 @@ class App extends Component {
                 {this.state.open ? <PopUp open={this.state.open} /> : null }  
                 <div className="header">
                     <h1>Bartr</h1>
-                    <h2>Hi {this.props.user.username.username}</h2> 
+                    <h2>Using the method: {this.sayHi()}</h2> 
+                    <h2>Hi {this.props.user.username.username}</h2>
                     {/* ^this only updates when you refresh, so this info needs a condition and componentDidUpdate */}
                 </div>
                 <nav className="nav">
@@ -75,7 +86,7 @@ class App extends Component {
                     <li className="nav-link"><Link to="/cart">Cart </Link></li>
                     <li className="nav-link">Checkout</li>
                     <li className="nav-link"> Past Orders </li>
-                    <li className="nav-link"><Link to="/login">Logout</Link></li>
+                    <li className="nav-link"><Link to="/login">Switch User</Link></li>
                 </ul>
                 <br></br>
                 </nav>
@@ -90,7 +101,7 @@ class App extends Component {
                 <Cart togglePop={this.togglePop}/>
                 </aside>
                 <footer className="footer">
-                    <div>{this.displayLogin()}</div>
+                    <p></p>
                 </footer>
             </div>
             </Router>

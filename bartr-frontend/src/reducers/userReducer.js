@@ -3,7 +3,7 @@ export default (state = { user: {username: 'Geoff', status: "pending" }}, action
         case "setStatus":
             return {...state, status: action.payload };
         case "setUser":
-            return {...state, user: {username: action.payload, status: "resolved"}}
+            return {state, user: {username: action.payload, status: "resolved"}}
         case "noUser":
             return { status: "idle"};
         case "logout":

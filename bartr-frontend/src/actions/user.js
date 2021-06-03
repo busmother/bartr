@@ -5,13 +5,12 @@ export const setStatus = () => {
         if (user.username !== "undefined"){
             dispatch({type: "setUser", payload: user})
         }       
-    }
+    } 
 }
 
 export const login = (user) => {
     console.log("user from login method", user)
     window.localStorage.setItem("username", user)
-    //look up window.localStorage methods
     return {
         type: "setUser", 
         payload: user}
