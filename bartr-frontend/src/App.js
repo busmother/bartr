@@ -30,37 +30,12 @@ class App extends Component {
         }));
     }
 
-    displayLogin = () => {
-
-        if(this.props.user.status === "idle"){
-            return <Login></Login>
-        }if(this.props.user.status === "pending"){
-            return <div>Loading...</div>
-        }if(this.props.user.status === "resolved"){
-            return (
-            <div>
-                <p>
-                Welcome {this.props.username}
-                </p>
-                <button onClick={this.logout}>Logout</button>
-            </div>
-            );
-        }if(this.props.user.status === "rejected"){
-            return <div>Oops you're not logged in</div>
-        }else{
-            return <div>An unforeseen misfortune has occured.</div>
-        }
-    }
-
     componentDidMount = () => {
         this.props.setStatus()
         this.setState()
-        console.log("state from App", this.state)
-
     }
 
     render(){
-        console.log("this.props.user", this.props.user)
 
         return(
             <Router>
@@ -68,9 +43,7 @@ class App extends Component {
                 {this.state.open ? <PopUp open={this.state.open} /> : null }  
                 <div className="header">
                     <h1>Bartr</h1>
-                    {/* <h2>Using the method: {this.sayHi()}</h2>  */}
-                    <h2>Hi {this.props.user.username}</h2>
-                    {/* ^this only updates when you refresh, so this info needs a condition and componentDidUpdate */}
+                    <h2>Hi {this.props.user.user}</h2>
                 </div>
                 <nav className="nav">
                 <br></br>

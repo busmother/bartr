@@ -8,7 +8,6 @@ export const setStatus = () => {
 }
 
 export const login = (username) => {
-    console.log("user from login method", username)
     window.localStorage.setItem("username", username)
     return {
         type: "setUser", 
