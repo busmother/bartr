@@ -25,12 +25,16 @@ let store = createStore(combineReducers, composeEnhancers(applyMiddleware(thunk)
 //     }
 // }
 
-
 ReactDOM.render(
+
     <Provider store={store}>
-            <App />
-            {/* {this.isAUserLoggedIn} */}
-            {/* <loggedIn /> */}
+        {(function() {
+            if (window.localStorage['username'] === ''){
+                return (<Login />)
+            }else{
+                return (<App />)
+            }
+        })()}
     </Provider>
 , 
 document.getElementById('root'));

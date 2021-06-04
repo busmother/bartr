@@ -5,7 +5,7 @@ import { login } from '.././actions/user'
 class Login extends Component {
 
     state = {
-        username: "Brad"
+        username: ""
     }
 
     handleChange = (e) => {
@@ -13,7 +13,7 @@ class Login extends Component {
     };
 
     handleSubmit = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         this.props.login(this.state.username)
     };
 
@@ -38,14 +38,11 @@ class Login extends Component {
 
 const mapStateToProps = state => {
     return{
-        username: state.userReducer.user.username
+        username: state.user.username
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return({
-        login
-    })
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+
+
+export default connect(mapStateToProps, {login})(Login);

@@ -1,19 +1,18 @@
 export const setStatus = () => {
     return (dispatch) => {
-        let user = { username: window.localStorage.getItem("username")};
-        console.log("user from setStatus", user)
-        if (user.username !== "undefined"){
-            dispatch({type: "setUser", payload: user})
+        let username = window.localStorage.getItem("username");
+        if (username !== "undefined"){
+            dispatch({type: "setUser", payload: username})
         }       
     } 
 }
 
-export const login = (user) => {
-    console.log("user from login method", user)
-    window.localStorage.setItem("username", user)
+export const login = (username) => {
+    console.log("user from login method", username)
+    window.localStorage.setItem("username", username)
     return {
         type: "setUser", 
-        payload: user}
+        payload: username}
 }
 
 export const logout = () => {

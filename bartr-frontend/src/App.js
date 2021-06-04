@@ -55,28 +55,32 @@ class App extends Component {
     componentDidMount = () => {
         this.props.setStatus()
         this.setState()
+        console.log("state from App", this.state)
+
     }
+
     //what other lifecycle events could do this? 
     //componentDidUpdate creates infinite loop, can it take conditions?
 
-    sayHi = () => {
-        return(`Hi ${this.props.user.username.username}`)
-    }
+    // sayHi = () => {
+    //     return(`Hi ${this.props.user.username}`)
+    // }
 
-    componentWillUpdate(){
-        this.sayHi()
-    }
+    // componentWillUpdate(){
+    //     this.sayHi()
+    // }
 
     render(){
         console.log("this.props.user", this.props.user)
-        return (
+
+        return(
             <Router>
             <div className="wrap">
                 {this.state.open ? <PopUp open={this.state.open} /> : null }  
                 <div className="header">
                     <h1>Bartr</h1>
-                    <h2>Using the method: {this.sayHi()}</h2> 
-                    <h2>Hi {this.props.user.username.username}</h2>
+                    {/* <h2>Using the method: {this.sayHi()}</h2>  */}
+                    <h2>Hi {this.props.user.username}</h2>
                     {/* ^this only updates when you refresh, so this info needs a condition and componentDidUpdate */}
                 </div>
                 <nav className="nav">
@@ -110,5 +114,5 @@ class App extends Component {
 }
 
 export default connect((state) => {
-    return { user: state.userReducer.user }
+    return { user: state.user }
 }, {setStatus})(App);
