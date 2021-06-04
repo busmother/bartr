@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Router } from 'react-router';
 import { login } from '.././actions/user'
 
 class Login extends Component {
@@ -13,8 +14,11 @@ class Login extends Component {
     };
 
     handleSubmit = (e) => {
-        // e.preventDefault();
+        // e.preventDefault()
         this.props.login(this.state.username)
+        this.props.history.push('/')
+        // Router.push
+        // this.props.addUser(this.state.username)
     };
 
     render () {

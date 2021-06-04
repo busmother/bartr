@@ -12,19 +12,6 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 let store = createStore(combineReducers, composeEnhancers(applyMiddleware(thunk)))
 
-
-// const loggedIn = () => {
-//     window.localStorage['username'] === 'undefined' ? <Login /> : <App />
-// }
-
-// isAUserLoggedIn = () => {
-//     if (window.localStorage['username'] === 'undefined') {
-//         return <Login />;
-//     } else {
-//         return <App />
-//     }
-// }
-
 ReactDOM.render(
 
     <Provider store={store}>

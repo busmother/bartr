@@ -59,17 +59,6 @@ class App extends Component {
 
     }
 
-    //what other lifecycle events could do this? 
-    //componentDidUpdate creates infinite loop, can it take conditions?
-
-    // sayHi = () => {
-    //     return(`Hi ${this.props.user.username}`)
-    // }
-
-    // componentWillUpdate(){
-    //     this.sayHi()
-    // }
-
     render(){
         console.log("this.props.user", this.props.user)
 
