@@ -29,10 +29,9 @@ export const addUser = (data) => {
                 'Accept': 'application/json'
             },
             method: 'POST',
-            body: JSON.stringify(data)
+            body: JSON.stringify({user: {username: data}})
         })
         .then(response => response.json())
-        .then(user => console.log("user from addUser method", user))
         .then(user => dispatch({type: 'setUser', payload: user}))
         .catch(error=>console.log("error", error))
     }
