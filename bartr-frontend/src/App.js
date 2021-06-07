@@ -6,7 +6,7 @@ import Cart from './components/Cart.js'
 import './app-stylesheet.css'
 import ProductsContainer from './components/ProductsContainer'
 import PopUp from './components/PopUp'
-import Login from './components/Login'
+import LoginComponent from './components/Login'
 import { connect } from 'react-redux'
 import { setStatus } from "./actions/user"
 
@@ -59,8 +59,15 @@ class App extends Component {
                 <br></br>
                 </nav>
                 <div className="main">
+                {(function() {
+                if (window.localStorage['username'] === ''){
+                    return (<LoginComponent />)
+                }else{
+                    return (<ProductsContainer />)
+                }
+                })()}
                 <Switch>
-                    <Route path = '/login' component = {Login}/>
+                    <Route path = '/login' component = {LoginComponent}/>
                     <Route path = '/cart' component = {Cart}/>
                     <Route path = '/' component = {ProductsContainer}/>
                 </Switch>

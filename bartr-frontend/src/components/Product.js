@@ -6,7 +6,7 @@ import {addItem} from '.././actions/addItem'
 
 const Product = ({ product }) => {
     const dispatch = useDispatch()
-    console.log("product from Product.js", product)
+    
     return(
         <div className="product-card" >
         <img className="product-image" src={product.attributes.image} alt={"product"}></img>
