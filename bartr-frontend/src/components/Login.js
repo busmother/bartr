@@ -7,7 +7,7 @@ import React, { useState, useHistory } from 'react'
 export default function LoginComponent(props) {
 
     const dispatch = useDispatch();
-    const username = useSelector(state => state.user.username);
+    const {username, id} = useSelector(state => state.user);
     const [name, setName] = useState('');
 
     const handleChange = (e) => {
