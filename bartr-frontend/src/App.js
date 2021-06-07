@@ -36,14 +36,16 @@ class App extends Component {
     }
 
     render(){
-
+        console.log("this.props.user from App", this.props.user)
         return(
             <Router>
             <div className="wrap">
                 {this.state.open ? <PopUp open={this.state.open} /> : null }  
                 <div className="header">
                     <h1>Bartr</h1>
-                    <h2>Hi {this.props.user.user}</h2>
+                    {this.props.user.user.length && 
+                        <h2>Hi {this.props.user.user}</h2>
+                    }
                 </div>
                 <nav className="nav">
                 <br></br>
