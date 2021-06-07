@@ -20,6 +20,7 @@ class Login extends Component {
     };
 
     render () {
+        {console.log("this.props from Login.js", this.props)}
         return(
             <div>
                 <h3>Login:</h3>

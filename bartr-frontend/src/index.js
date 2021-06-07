@@ -15,6 +15,7 @@ let store = createStore(combineReducers, composeEnhancers(applyMiddleware(thunk)
 ReactDOM.render(
 
     <Provider store={store}>
+
         {(function() {
             if (window.localStorage['username'] === ''){
                 return (<Login />)
