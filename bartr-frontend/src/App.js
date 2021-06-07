@@ -8,7 +8,7 @@ import ProductsContainer from './components/ProductsContainer'
 import PopUp from './components/PopUp'
 import Login from './components/Login'
 import { connect } from 'react-redux'
-import { setStatus, logout } from "./actions/user"
+import { setStatus } from "./actions/user"
 
 
 class App extends Component {
