@@ -4,11 +4,15 @@ import {Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom'
 
 import Cart from './components/Cart.js'
 import './app-stylesheet.css'
-import ProductsContainer from './components/ProductsContainer'
 import PopUp from './components/PopUp'
-import LoginComponent from './components/Login'
+
+import Products from './components/Products'
 import { connect } from 'react-redux'
-import { setStatus } from "./actions/user"
+import { setStatus, logout } from "./actions/user"
+import Button from './components/Button'
+import LoginGate from './components/LoginGate'
+import LoginComponent from './components/Login'
+
 
 
 class App extends Component {
@@ -35,17 +39,25 @@ class App extends Component {
         this.setState()
     }
 
+    isString = (x) => {
+        return Object.prototype.toString.call(x) === '[object String]'
+    }
+
+    greeting = () => {
+        if (this.props.status === "resolved"){
+            return (<h4>Hi {this.props.user.user}</h4>)
+        }
+    }
+
     render(){
-        console.log("this.props.user from App", this.props.user)
+        console.log("this.props from App", this.props)
         return(
             <Router>
             <div className="wrap">
                 {this.state.open ? <PopUp open={this.state.open} /> : null }  
                 <div className="header">
                     <h1>Bartr</h1>
-                    {this.props.user.user.length && 
-                        <h2>Hi {this.props.user.user}</h2>
-                    }
+                    {this.greeting()}
                 </div>
                 <nav className="nav">
                 <br></br>
@@ -54,22 +66,16 @@ class App extends Component {
                     <li className="nav-link"><Link to="/cart">Cart </Link></li>
                     <li className="nav-link">Checkout</li>
                     <li className="nav-link"> Past Orders </li>
-                    <li className="nav-link"><Link to="/login">Switch User</Link></li>
+                    <li className="nav-link"><Button handleClick={() => logout()} label = "Logout" /></li>
                 </ul>
                 <br></br>
                 </nav>
                 <div className="main">
-                {(function() {
-                if (window.localStorage['username'] === ''){
-                    return (<LoginComponent />)
-                }else{
-                    return (<ProductsContainer />)
-                }
-                })()}
+                <LoginGate />
                 <Switch>
                     <Route path = '/login' component = {LoginComponent}/>
                     <Route path = '/cart' component = {Cart}/>
-                    <Route path = '/' component = {ProductsContainer}/>
+                    <Route path = '/products' component = {Products}/>
                 </Switch>
             </div>
                 <aside className="sidebar">

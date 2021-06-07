@@ -2,8 +2,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { login, addUser } from '.././actions/user'
 import React, { useState, useHistory } from 'react'
 
-
-
 export default function LoginComponent(props) {
 
     const dispatch = useDispatch();

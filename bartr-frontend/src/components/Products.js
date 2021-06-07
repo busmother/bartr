@@ -4,7 +4,6 @@ import Product from './Product';
 import './products-stylesheet.css'
 
 
-
 const Products = (props) => {
 
     return(
