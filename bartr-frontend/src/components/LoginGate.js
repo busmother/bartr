@@ -8,20 +8,30 @@ import { login } from '../actions/user'
 class LoginGate extends React.Component {
 
     conditionalRender = () => {
-        
-        if (this.props.loginStatus === "resolved"){
+
+        if (this.props.status === "resolved"){
+            return(
             <div>
                 <ProductsContainer />
             </div>
-        }else if (this.props.loginStatus === "idle"){
+            )
+        }else if (this.props.status === "idle"){
+            return(
             <div>
                 <LoginComponent />
             </div>
+            )
+        }else{
+            return(
+            <div>
+                <LoginComponent />
+            </div>
+            )
         }
     }
 
     render() {
-        console.log('this.props from LoginGate', this.props)
+        console.log('props from LoginGate', this.props)
         return(
             <div>
                 {this.conditionalRender()}
@@ -33,7 +43,6 @@ class LoginGate extends React.Component {
 
 
 const mapStateToProps = state => {
-
     return {
         status: state.user.status
     }

@@ -47,7 +47,7 @@ class App extends Component {
         }
 
     render(){
-        console.log("props from App", this.props)
+        console.log("store from App", this.store)
         return(
             <Router>
             <div className="wrap">
@@ -68,7 +68,7 @@ class App extends Component {
                 <br></br>
                 </nav>
                 <div className="main">
-                <LoginGate loginStatus={this.state.user.status}/>
+                <LoginGate />
                 <Switch>
                     <Route path = '/login' component = {LoginComponent}/>
                     <Route path = '/cart' component = {Cart}/>
@@ -93,6 +93,7 @@ const mapDispatchToProps = (dispatch) => {
         setStatus
     }
  }
+
 
 export default connect((state) => {
     return { user: state.user }
