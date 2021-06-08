@@ -15,4 +15,9 @@ const Order = ({ order }) => {
 
 }
 
+Order.defaultProps = {
+    id: "Order ID number missing",
+    items: "Order Items missing"
+}
+
 export default Order
