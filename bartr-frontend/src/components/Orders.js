@@ -1,4 +1,5 @@
 import React from 'react';
+import Order from './Order'
 
 const Orders = (props) => {
 
@@ -7,9 +8,11 @@ const Orders = (props) => {
             <ul>
             {props.orders &&
             props.orders.map((order) => (
-                <li><Order key={order.id} items = {items} className = "order" /></li>
+                <li><Order key={order.id} className = "order" /></li>
             ))}
             </ul>
         </div>
     )
 }
+
+export default Orders

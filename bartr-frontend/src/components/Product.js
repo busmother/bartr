@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './Button.js'
+import Button from './Button'
 import './product-stylesheet.css'
 import {useDispatch} from 'react-redux'
 import {addItem} from '.././actions/addItem'

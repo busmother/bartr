@@ -12,6 +12,7 @@ import { setStatus, logout } from "./actions/user"
 import Button from './components/Button'
 import LoginGate from './components/LoginGate'
 import LoginComponent from './components/Login'
+import OrdersContainer from './components/OrdersContainer'
 
 
 
@@ -62,7 +63,7 @@ class App extends Component {
                     <li className="nav-link"><Link to="/products">Products </Link></li>
                     <li className="nav-link"><Link to="/cart">Cart </Link></li>
                     <li className="nav-link">Checkout</li>
-                    <li className="nav-link"> Past Orders </li>
+                    <li className="nav-link"> <Link to="/orders">Past Orders</Link></li>
                     <li className="nav-link"><Button handleClick={() => this.props.logout()} label = "Logout" /></li>
                 </ul>
                 <br></br>
@@ -73,6 +74,7 @@ class App extends Component {
                     <Route path = '/login' component = {LoginComponent}/>
                     <Route path = '/cart' component = {Cart}/>
                     <Route path = '/products' component = {ProductsContainer}/>
+                    <Route path = '/orders' component = {OrdersContainer}/>
                 </Switch>
             </div>
                 <aside className="sidebar">
