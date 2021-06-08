@@ -8,20 +8,7 @@ import { login } from '../actions/user'
 class LoginGate extends React.Component {
 
     conditionalRender = () => {
-
-        if (this.props.status === "resolved"){
-            return(
-            <div>
-                <ProductsContainer />
-            </div>
-            )
-        }else if (this.props.status === "idle"){
-            return(
-            <div>
-                <LoginComponent />
-            </div>
-            )
-        }else{
+        if (this.props.status !== "resolved"){
             return(
             <div>
                 <LoginComponent />

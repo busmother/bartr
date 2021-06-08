@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './popup-stylesheet.css'
 import Form from './Form'
+import LoginComponent from './Login'
 
 class PopUp extends Component {
 
@@ -15,7 +16,7 @@ class PopUp extends Component {
                     <span className="close" onClick={this.handleClick}>&times;
                     </span>
                     <p>Enter your shipping info:</p>
-                    <Form />
+                    <LoginComponent />
                 </div>
             </div>
         );

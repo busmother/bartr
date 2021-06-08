@@ -2,10 +2,10 @@ export default function orderReducer(state = {orders: []}, action) {
 
     switch (action.type) {
         case 'FETCH_ORDERS':
-            return {proders: action.payload}
+            return {orders: action.payload}
         case 'ADD_ORDER':
             return {...state, orders: [...state.orders, action.payload]}
-        case 'REMOVE_ORDER':
+        case 'REMOVE_ORDER': //probably unnecessary
             const removalIndex = state.orders.findIndex(order => order.id === action.id);
             return (
                 {...state, 
