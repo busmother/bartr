@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addOrder } from '.././actions/addOrder'
+import { addOrder } from '../actions/order'
 
 class Form extends Component {
 

@@ -24,3 +24,15 @@ export const addOrder = (data) => {
     }
 }
 
+export function fetchOrders(action){
+    return (dispatch) => {
+        fetch('http://localhost:300/api/v1/orders')
+        .then(response => response.json())
+        .then(orders => dispatch({
+            type: 'FETCH_ORDERS',
+            payload: orders
+        }))
+        .catch(error=>console.log("error", error))
+    }
+}
+
