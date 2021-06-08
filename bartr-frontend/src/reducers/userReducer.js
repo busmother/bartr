@@ -1,4 +1,4 @@
-export default (state = {user: {}, status: "pending" }, action) => {
+export default (state = {user: {username: ''}, status: "pending" }, action) => {
     switch (action.type) {
         case "setStatus":
             return {...state, status: action.payload };
@@ -7,7 +7,7 @@ export default (state = {user: {}, status: "pending" }, action) => {
         case "noUser":
             return { status: "idle"};
         case "logout":
-            return { status: "idle"}
+            return {...state, user: {username: ''}, status: "idle"}
         default:
             return state;
     }

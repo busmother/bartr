@@ -5,15 +5,15 @@ import { connect } from 'react-redux'
 import { login } from '../actions/user'
 
 
-
 class LoginGate extends React.Component {
 
     conditionalRender = () => {
-        if (this.props.status === "resolved"){
+        
+        if (this.props.loginStatus === "resolved"){
             <div>
                 <ProductsContainer />
             </div>
-        }else{
+        }else if (this.props.loginStatus === "idle"){
             <div>
                 <LoginComponent />
             </div>
@@ -21,7 +21,7 @@ class LoginGate extends React.Component {
     }
 
     render() {
-        console.log("this.props.status from LoginGate", this.props)
+        console.log('this.props from LoginGate', this.props)
         return(
             <div>
                 {this.conditionalRender()}
@@ -33,13 +33,10 @@ class LoginGate extends React.Component {
 
 
 const mapStateToProps = state => {
-    console.log("state from LoginGate", state)
 
     return {
-        status: state.user.status,
+        status: state.user.status
     }
 }
 
 export default connect(mapStateToProps, {login})(LoginGate)
-
-// export default LoginGate

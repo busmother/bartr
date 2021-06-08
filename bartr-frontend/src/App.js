@@ -6,7 +6,7 @@ import Cart from './components/Cart.js'
 import './app-stylesheet.css'
 import PopUp from './components/PopUp'
 
-import Products from './components/Products'
+import ProductsContainer from './components/ProductsContainer'
 import { connect } from 'react-redux'
 import { setStatus, logout } from "./actions/user"
 import Button from './components/Button'
@@ -39,18 +39,15 @@ class App extends Component {
         this.setState()
     }
 
-    isString = (x) => {
-        return Object.prototype.toString.call(x) === '[object String]'
-    }
-
     greeting = () => {
-        if (this.props.status === "resolved"){
-            return (<h4>Hi {this.props.user.user}</h4>)
+        console.log ("this.props from App/greeting", this.props)
+        if (this.props.user?.status && this.props.user.status === "resolved"){
+                return (<h4>Hi {this.props.user.user.username}</h4>)
+            }
         }
-    }
 
     render(){
-        console.log("this.props from App", this.props)
+        console.log("props from App", this.props)
         return(
             <Router>
             <div className="wrap">
@@ -62,20 +59,20 @@ class App extends Component {
                 <nav className="nav">
                 <br></br>
                 <ul className="nav-list">
-                    <li className="nav-link"><Link to="/">Products </Link></li>
+                    <li className="nav-link"><Link to="/products">Products </Link></li>
                     <li className="nav-link"><Link to="/cart">Cart </Link></li>
                     <li className="nav-link">Checkout</li>
                     <li className="nav-link"> Past Orders </li>
-                    <li className="nav-link"><Button handleClick={() => logout()} label = "Logout" /></li>
+                    <li className="nav-link"><Button handleClick={() => this.props.logout()} label = "Logout" /></li>
                 </ul>
                 <br></br>
                 </nav>
                 <div className="main">
-                <LoginGate />
+                <LoginGate loginStatus={this.state.user.status}/>
                 <Switch>
                     <Route path = '/login' component = {LoginComponent}/>
                     <Route path = '/cart' component = {Cart}/>
-                    <Route path = '/products' component = {Products}/>
+                    <Route path = '/products' component = {ProductsContainer}/>
                 </Switch>
             </div>
                 <aside className="sidebar">
@@ -90,6 +87,13 @@ class App extends Component {
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        logout: () => dispatch({type: 'logout'}),
+        setStatus
+    }
+ }
+
 export default connect((state) => {
     return { user: state.user }
-}, {setStatus})(App);
+}, mapDispatchToProps)(App);

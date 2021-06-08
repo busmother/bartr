@@ -1,6 +1,6 @@
 export const setStatus = () => {
+    let username = window.localStorage.getItem("username");
     return (dispatch) => {
-        let username = window.localStorage.getItem("username");
         if (username !== "undefined"){
             dispatch({type: "setUser", payload: username})
         }       
@@ -15,13 +15,14 @@ export const login = (username) => {
 }
 
 export const logout = () => {
-    window.localStorage.removeItem("username", )
-    return {type: "logout"}
+    window.localStorage['username'] = ''
+    return (dispatch) => {
+        dispatch({type: "logout"})
+    }
 }
 
 export const addUser = (data) => {
     return (dispatch) => {
-
         fetch('http://localhost:3000/api/v1/users', {
             headers: {
                 'Content-Type': 'application/json',

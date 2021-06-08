@@ -17,11 +17,8 @@ export default function LoginComponent(props) {
         if (name.length){
         dispatch(addUser(name))
         dispatch(login(name))
-        props.history.push("/")
         }
     };
-
-    console.log("props from LoginComponent", props)
 
     return(
         <div>
