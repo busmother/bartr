@@ -1,21 +1,16 @@
 import React, { Component } from 'react'
 import './popup-stylesheet.css'
-import Form from './Form'
 import LoginComponent from './Login'
+import { connect } from 'react-redux'
+import { login } from '../actions/user'
 
 class PopUp extends Component {
-
-    handleClick = () => {
-        this.state.togglePop();
-    };
 
     render() {
         return (
             <div className="popup">
                 <div className="modal_content">
-                    <span className="close" onClick={this.handleClick}>&times;
-                    </span>
-                    <p>Enter your shipping info:</p>
+                    <p>Please enter a name to continue:</p>
                     <LoginComponent />
                 </div>
             </div>
@@ -24,4 +19,10 @@ class PopUp extends Component {
 
 }
 
-export default PopUp;
+const mapStateToProps = state => {
+    return {
+        status: state.user.status
+    }
+}
+
+export default connect(mapStateToProps, {login})(PopUp)

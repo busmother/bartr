@@ -13,7 +13,8 @@ class Cart extends Component {
 
     handleClick = (e) => {
         e.preventDefault();
-        this.props.togglePop()
+        // update this to initiate a checkout instead
+        console.log("you clicked the checkout button!")
     }
 
     render(props){

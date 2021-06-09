@@ -10,7 +10,6 @@ import ProductsContainer from './components/ProductsContainer'
 import { connect } from 'react-redux'
 import { setStatus, logout } from "./actions/user"
 import Button from './components/Button'
-import LoginGate from './components/LoginGate'
 import LoginComponent from './components/Login'
 import OrdersContainer from './components/OrdersContainer'
 
@@ -33,6 +32,12 @@ class App extends Component {
         this.setState(state => ({
             open: !state.open
         }));
+    }
+
+    loginPopUp = () => {
+        if (this.props.status !== "resolved"){
+            this.togglePop();
+        }
     }
 
     componentDidMount = () => {
@@ -69,16 +74,15 @@ class App extends Component {
                 <br></br>
                 </nav>
                 <div className="main">
-                <LoginGate />
+                <LoginComponent />
                 <Switch>
-                    <Route path = '/login' component = {LoginComponent}/>
                     <Route path = '/cart' component = {Cart}/>
                     <Route path = '/products' component = {ProductsContainer}/>
                     <Route path = '/orders' component = {OrdersContainer}/>
                 </Switch>
             </div>
                 <aside className="sidebar">
-                <Cart togglePop={this.togglePop}/>
+                <Cart/>
                 </aside>
                 <footer className="footer">
                     <p></p>
