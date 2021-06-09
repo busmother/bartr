@@ -35,7 +35,8 @@ class App extends Component {
     }
 
     loginPopUp = () => {
-        if (this.props.status !== "resolved"){
+        if (this.props.user.status !== "resolved"){
+            console.log("the loginPopUp conditional has been triggered")
             this.togglePop();
         }
     }
@@ -43,17 +44,16 @@ class App extends Component {
     componentDidMount = () => {
         this.props.setStatus()
         this.setState()
+        this.loginPopUp()
     }
 
     greeting = () => {
-        console.log ("this.props from App/greeting", this.props)
         if (this.props.user?.status && this.props.user.status === "resolved"){
                 return (<h4>Hi {this.props.user.user.username}</h4>)
             }
         }
 
     render(){
-        console.log("store from App", this.store)
         return(
             <Router>
             <div className="wrap">
@@ -74,11 +74,11 @@ class App extends Component {
                 <br></br>
                 </nav>
                 <div className="main">
-                <LoginComponent />
                 <Switch>
                     <Route path = '/cart' component = {Cart}/>
                     <Route path = '/products' component = {ProductsContainer}/>
                     <Route path = '/orders' component = {OrdersContainer}/>
+                    <Route path = '/login' component = {LoginComponent}/>
                 </Switch>
             </div>
                 <aside className="sidebar">

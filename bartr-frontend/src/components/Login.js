@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { login, addUser } from '.././actions/user'
-import React, { useState, useHistory } from 'react'
+import React, { useState } from 'react'
 
 export default function LoginComponent(props) {
 
@@ -18,6 +18,7 @@ export default function LoginComponent(props) {
         dispatch(addUser(name))
         dispatch(login(name))
         }
+        
     };
 
     return(
