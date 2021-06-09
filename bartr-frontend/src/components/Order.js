@@ -1,11 +1,12 @@
 import React from 'react';
-import {moment} from 'moment'
+import Moment from 'react-moment'
+
 
 const Order = ({ order }) => {
     return (
         
         <div>
-            <h5>Order number: #{order.id}, {moment(order.attributes.updated_at).format('MMMM Do YYYY, h:mm:ss a')} </h5>
+            <h5>Order number: #{order.id} – <em><Moment format='MMMM Do YYYY, h:mm:ss a'>{order.attributes.updated_at}</Moment></em> </h5>
             <h5>Order info: </h5>
             <h5>{order.attributes.recipient}<br></br>
             {order.attributes.street_address}<br></br>
