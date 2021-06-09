@@ -34,17 +34,16 @@ class App extends Component {
         }));
     }
 
-    loginPopUp = () => {
-        if (this.props.user.status !== "resolved"){
-            console.log("the loginPopUp conditional has been triggered")
-            this.togglePop();
-        }
-    }
-
     componentDidMount = () => {
         this.props.setStatus()
         this.setState()
-        this.loginPopUp()
+    }
+
+    componentWillReceiveProps = () => {
+        if (this.props.user.status !== "resolved"){
+            console.log("the popup conditional has been triggered")
+        this.togglePop();
+        }
     }
 
     greeting = () => {
