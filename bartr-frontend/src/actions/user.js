@@ -11,7 +11,8 @@ export const login = (username) => {
     window.localStorage.setItem("username", username)
     return {
         type: "setUser", 
-        payload: username}
+        payload: username
+    }
 }
 
 export const logout = () => {
