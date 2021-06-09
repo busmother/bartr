@@ -6,7 +6,8 @@ import Orders from './Orders'
 class OrdersContainer extends React.Component {
 
     componentDidMount() {
-        this.props.fetchOrders()
+        let user_id = this.props.user_id
+        this.props.fetchOrders(user_id)
     }
 
     render() {
@@ -20,7 +21,8 @@ class OrdersContainer extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        orders: state.orderReducer.orders.data
+        orders: state.orderReducer.orders.data,
+        user_id: state.user.user.id
     }
 }
 

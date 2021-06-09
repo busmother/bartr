@@ -69,7 +69,8 @@ class App extends Component {
                     <li className="nav-link"><Link to="/cart">Cart </Link></li>
                     <li className="nav-link">Checkout</li>
                     <li className="nav-link"> <Link to="/orders">Past Orders</Link></li>
-                    <li className="nav-link"><Button handleClick={() => this.props.logout()} label = "Logout" /></li>
+                    <li className="nav-link"><Button 
+                    handleClick={() => this.props.logout()} label = "Logout" /></li>
                 </ul>
                 <br></br>
                 </nav>
@@ -96,7 +97,9 @@ class App extends Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         logout: () => dispatch({type: 'logout'}),
+        openPopUp: () => dispatch({type: 'OPEN'}),
         setStatus
+
     }
  }
 
