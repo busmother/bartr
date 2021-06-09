@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { login, addUser } from '.././actions/user'
-import { popUp } from '.././actions/popUp'
+import { closePopUp } from '.././actions/popUp'
 import React, { useState } from 'react'
 
 export default function LoginComponent(props) {
@@ -18,7 +18,7 @@ export default function LoginComponent(props) {
         if (name.length){
         dispatch(addUser(name))
         dispatch(login(name))
-        dispatch(popUp())
+        dispatch(closePopUp())
         }
     };
 

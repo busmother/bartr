@@ -9,6 +9,7 @@ import PopUp from './components/PopUp'
 import ProductsContainer from './components/ProductsContainer'
 import { connect } from 'react-redux'
 import { setStatus, logout } from "./actions/user"
+import openPopUp from './actions/popUp'
 import Button from './components/Button'
 import LoginComponent from './components/Login'
 import OrdersContainer from './components/OrdersContainer'
