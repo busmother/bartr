@@ -16,7 +16,6 @@ export const login = (username) => {
 }
 
 export const logout = () => {
-    window.localStorage['username'] = ''
     return (dispatch) => {
         dispatch({type: "logout"})
     }

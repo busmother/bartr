@@ -9,12 +9,11 @@ import PopUp from './components/PopUp'
 import ProductsContainer from './components/ProductsContainer'
 import { connect } from 'react-redux'
 import { setStatus, logout } from "./actions/user"
-import openPopUp from './actions/popUp'
+import { clearOrders } from './actions/order'
+import { openPopUp } from './actions/popUp'
 import Button from './components/Button'
 import LoginComponent from './components/Login'
 import OrdersContainer from './components/OrdersContainer'
-
-
 
 class App extends Component {
 
@@ -40,9 +39,14 @@ class App extends Component {
         this.setState()
     }
 
+    // componentDidUpdate = (preprops) => {
+    //     if (preprops.user.user.status !== this.props.user.user.status){
+    //         this.props.clearOrders()
+    //     }
+    // }
+
     componentWillReceiveProps = () => {
         if (this.props.user.status !== "resolved"){
-            console.log("the popup conditional has been triggered")
         this.togglePop();
         }
     }
@@ -69,8 +73,11 @@ class App extends Component {
                     <li className="nav-link"><Link to="/cart">Cart </Link></li>
                     <li className="nav-link">Checkout</li>
                     <li className="nav-link"> <Link to="/orders">Past Orders</Link></li>
-                    <li className="nav-link"><Button 
-                    handleClick={() => this.props.logout()} label = "Logout" /></li>
+                    <li className="nav-link"><Button handleClick={() => {
+                                                        this.props.logout(); 
+                                                        this.props.clearOrders();
+                                                        }} 
+                                                        label = "Logout" /></li>
                 </ul>
                 <br></br>
                 </nav>
@@ -98,8 +105,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         logout: () => dispatch({type: 'logout'}),
         openPopUp: () => dispatch({type: 'OPEN'}),
-        setStatus
-
+        setStatus,
+        clearOrders
     }
  }
 

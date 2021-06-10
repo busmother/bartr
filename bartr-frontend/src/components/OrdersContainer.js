@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {fetchOrders} from '../actions/order'
+import {fetchOrders, clearOrders} from '../actions/order'
 import Orders from './Orders'
 
 class OrdersContainer extends React.Component {
@@ -10,7 +10,16 @@ class OrdersContainer extends React.Component {
         this.props.fetchOrders(user_id)
     }
 
+    componentDidUpdate = (preprops) => {
+        console.log("this.props.orders", this.props.orders)
+        if (preprops.orders !== this.props.orders){
+            this.props.clearOrders()
+            console.log("the preprops are different")
+        }
+    }
+
     render() {
+        console.log("this.props.orders from OrdersContainer", this.props.orders)
         return(
             <div>
                 <Orders orders={this.props.orders} />
@@ -26,4 +35,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {fetchOrders})(OrdersContainer)
+export default connect(mapStateToProps, {fetchOrders, clearOrders})(OrdersContainer)

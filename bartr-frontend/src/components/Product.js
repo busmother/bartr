@@ -2,7 +2,7 @@ import React from 'react';
 import Button from './Button'
 import './product-stylesheet.css'
 import {useDispatch} from 'react-redux'
-import {addItem} from '.././actions/addItem'
+import {addItem} from '.././actions/item'
 
 const Product = ({ product }) => {
     const dispatch = useDispatch()

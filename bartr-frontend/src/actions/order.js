@@ -36,3 +36,10 @@ export function fetchOrders(user_id){
         .catch(error=>console.log("error", error))
     }
 }
+
+export const clearOrders = () => {
+console.log("clear orders is firing")
+    return (dispatch) => {
+        dispatch({type: "CLEAR_ORDERS"})
+    }
+}

@@ -1,7 +1,7 @@
 export const addItem = (data) => { 
     return (dispatch) => {
 
-        fetch('http://localhost:3000/api/v1/orders/1/items', {
+        fetch(`http://localhost:3000/api/v1/users/${user_id}/orders/${order_id}/items`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
@@ -15,4 +15,6 @@ export const addItem = (data) => {
         .catch(error=>console.log("error", error))
     }
 }
+
+
 

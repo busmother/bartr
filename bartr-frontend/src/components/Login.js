@@ -18,7 +18,6 @@ export default function LoginComponent(props) {
         if (name.length){
         dispatch(addUser(name))
         dispatch(login(name))
-        // dispatch(closePopUp())
         }
     };
 
