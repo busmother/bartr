@@ -6,6 +6,7 @@ import './cart-stylesheet.css'
 import Button from './Button.js'
 import { connect } from 'react-redux'
 import { fetchItems } from '../actions/item'
+import { fetchCurrentOrder } from '../actions/user'
 
 const items = [
     {id: 1, name: `insulin`, price: `everything at a price`}
@@ -21,8 +22,9 @@ class Cart extends Component {
 
     componentDidMount() {
         let user_id = this.props.user_id
+        fetchCurrentOrder(user_id)
         let order_id = this.props.order_id
-        this.props.fetchItems(user_id)
+        fetchItems(user_id, order_id)
     }
 
     render(props){

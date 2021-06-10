@@ -10,5 +10,5 @@ export default combineReducers({
     orderReducer,
     itemReducer,
     user,
-    popUpReducer
+    popUpReducer,
 })

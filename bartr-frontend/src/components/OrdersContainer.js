@@ -11,15 +11,12 @@ class OrdersContainer extends React.Component {
     }
 
     componentDidUpdate = (preprops) => {
-        console.log("this.props.orders", this.props.orders)
         if (preprops.orders !== this.props.orders){
             this.props.clearOrders()
-            console.log("the preprops are different")
         }
     }
 
     render() {
-        console.log("this.props.orders from OrdersContainer", this.props.orders)
         return(
             <div>
                 <Orders orders={this.props.orders} />

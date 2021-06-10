@@ -23,7 +23,7 @@ export const addItem = (data, user_id, order_id) => {
         })
         .then(response => response.json())
         .then(item => console.log("item", item))
-        // .then(order => dispatch({type: 'ADD_ITEM', payload: item}))
+        .then(item => dispatch({type: 'ADD_ITEM', payload: item}))
         .catch(error=>console.log("error", error))
     }
 }

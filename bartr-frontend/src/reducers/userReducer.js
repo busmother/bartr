@@ -8,6 +8,8 @@ export default (state = {user: {username: ''}, status: "pending" }, action) => {
             return { status: "idle"};
         case "logout":
             return {...state, user: {username: ''}, status: "idle"};
+        case "fetchCurrentOrder":
+            return {...state, order_id: action.payload}
         default:
             return state;
     }

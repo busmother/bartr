@@ -1,11 +1,12 @@
 import React from 'react';
 import Button from './Button'
 import './product-stylesheet.css'
-import {useDispatch} from 'react-redux'
-import {addItem} from '.././actions/item'
+import { useDispatch, useSelector } from 'react-redux'
+import { addItem } from '.././actions/item'
 
 const Product = ({ product }) => {
     const dispatch = useDispatch()
+    // const user_id = userSelector(user_id)
     
     return(
         <div className="product-card" >
