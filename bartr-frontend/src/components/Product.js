@@ -14,7 +14,7 @@ const Product = ({ product }) => {
         <em><p className="description"> {product.attributes.description}</p></em>
         <p>${product.attributes.price}</p>
         
-        <Button handleClick={() => addItem(product)(dispatch)} label="Add to cart"> </Button>
+        <Button handleClick={() => addItem(product, )(dispatch)} label="Add to cart"> </Button>
     </div>
     )
 
