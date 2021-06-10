@@ -21,13 +21,15 @@ class Cart extends Component {
     }
 
     componentDidMount() {
-        let user_id = this.props.user_id
-        fetchCurrentOrder(user_id)
-        let order_id = this.props.order_id
+        let user_id = this.props.user_id;
+        let order_id = this.props.open_order_id
         fetchItems(user_id, order_id)
+        // fetchCurrentOrder(user_id)
+        console.log("this.props in the Cart", this.props)
     }
-
+    
     render(props){
+        console.log("this.props from Cart", this.props)
         return(
             <div>
                 <p className="cart-header"> Hi there! I'm the cart!</p>
@@ -53,7 +55,13 @@ class Cart extends Component {
 const mapStateToProps = state => {
     return {
         user_id: state.user.user.id,
-        order_id: state.user.user.order_id
+        open_order_id: state.orderReducer.orders.data.[0].attributes.open_order_id
+    }
+}
+
+const mapDispatchToProps = state => {
+    return {
+        fetchCurrentOrder: state.fetchCurrentOrder,
     }
 }
 

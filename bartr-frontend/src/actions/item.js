@@ -1,4 +1,5 @@
 export const fetchItems = (user_id, order_id) => {
+    console.log("you made it to fetchItems!")
     return (dispatch) => {
         fetch(`http://localhost:3000/api/v1/users/${user_id}/orders/${order_id}`)
         .then(response => response.json())

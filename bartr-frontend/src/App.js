@@ -34,7 +34,7 @@ class App extends Component {
         }));
     }
 
-    componentDidMount = () => {
+    componentWillMount = () => {
         this.props.setStatus()
         this.setState()
     }
