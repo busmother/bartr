@@ -8,7 +8,7 @@ import PopUp from './components/PopUp'
 
 import ProductsContainer from './components/ProductsContainer'
 import { connect } from 'react-redux'
-import { setStatus, logout } from "./actions/user"
+import { setStatus } from "./actions/user"
 import { clearOrders } from './actions/order'
 import { openPopUp } from './actions/popUp'
 import Button from './components/Button'
@@ -46,9 +46,8 @@ class App extends Component {
     }
 
     greeting = () => {
-        console.log("this.props from App", this.props)
         if (this.props.user?.status && this.props.user.status === "resolved"){
-                return (<h4>Hi {this.props.user.user.data.attributes.username}</h4>)
+                return (<h4>Hi {this?.props?.user?.user?.data?.attributes?.username}</h4>)
             }
         }
 
@@ -59,7 +58,7 @@ class App extends Component {
                 {this.state.open ? <PopUp open={this.state.open} /> : null }  
                 <div className="header">
                     <h1>Bartr</h1>
-                    {/* {this.greeting()} */}
+                    {this.greeting()}
                 </div>
                 <nav className="nav">
                 <br></br>

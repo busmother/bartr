@@ -35,7 +35,7 @@ export const addUser = (data) => {
             body: JSON.stringify({user: {username: data}})
         })
         .then(response => response.json())
-        .then(user => dispatch({type: 'setUser', payload: user}))
+        .then(user => dispatch({type: 'setUser', payload: user})) //update this to user.data.attributes and it will break everything but reduces boilerplate
         .catch(error=>console.log("error", error))
     }
 }

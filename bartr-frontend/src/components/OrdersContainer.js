@@ -20,7 +20,9 @@ class OrdersContainer extends React.Component {
         console.log("this.props from orders container", this.props)
         return(
             <div>
-                <Orders orders={this.props.orders} />
+                <Orders orders={this?.props?.orders?.filter(order => {
+                    return order.attributes.open === false
+                })} />
             </div>
         )
     }
@@ -28,8 +30,8 @@ class OrdersContainer extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        orders: state.orderReducer.orders.data,
-        user_id: state.user.user.data.id
+        orders: state?.orderReducer?.orders?.data,
+        user_id: state?.user?.user?.data?.id
     }
 }
 

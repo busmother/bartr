@@ -6,6 +6,7 @@ import './cart-stylesheet.css'
 import Button from './Button.js'
 import { connect } from 'react-redux'
 import { fetchOrders } from '../actions/order'
+import { fetchItems } from '../actions/item'
 
 class Cart extends Component {
 
@@ -14,37 +15,32 @@ class Cart extends Component {
         console.log("you clicked the checkout button!")
     }
 
-    currentItems(order_id){
-        let orders = this.props.orders
-        let itemsInCart = orders.filter(function(order){
-            return order.id === order_id
-        })
-        itemsInCart()
-    }
-
     componentDidMount() {
         let user_id = this.props.user_id
+        let open_order_id = this.props.open_order_id
         this.props.fetchOrders(user_id)
+        this.props.fetchItems(user_id, open_order_id)
     }
     
     render(props){
         console.log("this.props from Cart", this.props)
         return(
             <div>
-                <p className="cart-header"> Hi there! I'm the cart!</p>
+                <em><p className="cart-header"> Your cart:</p></em>
                 <CSSTransition transitionName="animation">
                 <ul>
-                {this.props.order_items.map((item) => (
+                {this?.props?.items?.map((item) => (
                     <Grid
                     item
                     key={item.id}
                     >
-                        <li>{item.name} - {item.price}</li>
+                        <li>{item.attributes.product.name} - ${item.attributes.product.price}</li>
                     </Grid>
 
                 ))}
                 </ul>
                 </CSSTransition>
+                <em>Total: ${this?.props?.order_total}</em><br></br>
                 <Button handleClick={this.handleClick} label="Checkout"/>
             </div>
         )
@@ -52,14 +48,14 @@ class Cart extends Component {
 }
 
 const mapStateToProps = state => {
-    const last_order = state.orderReducer.orders.data.length - 1
+    const last_order = state?.orderReducer?.orders?.data?.length - 1
     return {
         user_id: state?.user?.user?.data?.id,
-        open_order_id: state?.orderReducer?.orders?.data?.[0]?.attributes?.open_order_id,
-        order_items: state?.orderReducer?.orders?.data?.[last_order]?.attributes?.items
-        // items: state.orderReducer.orders // last order, items
+        open_order_id: state?.user?.user?.data?.attributes?.open_order_id, 
+        order_total: state?.orderReducer?.orders?.data?.[last_order]?.attributes.order_total,
+        items: state?.itemReducer?.items?.data
     }
 }
 
-export default connect(mapStateToProps, { fetchOrders })(Cart)
+export default connect(mapStateToProps, { fetchOrders, fetchItems })(Cart)
 

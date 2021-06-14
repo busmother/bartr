@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import Button from './Button'
 import './product-stylesheet.css'
 import { useDispatch, useSelector } from 'react-redux'
@@ -6,7 +6,8 @@ import { addItem } from '.././actions/item'
 
 const Product = ({ product }) => {
     const dispatch = useDispatch()
-    // const user_id = userSelector(user_id)
+    const user_id = useSelector(state => state?.user?.user?.data?.id)
+    const open_order_id = useSelector(state => state?.user?.user?.data?.attributes?.open_order_id)
     
     return(
         <div className="product-card" >
@@ -15,7 +16,7 @@ const Product = ({ product }) => {
         <em><p className="description"> {product.attributes.description}</p></em>
         <p>${product.attributes.price}</p>
         
-        <Button handleClick={() => addItem(product, )(dispatch)} label="Add to cart"> </Button>
+        <Button handleClick={() => dispatch(addItem(product, user_id, open_order_id))} label="Add to cart"> </Button>
     </div>
     )
 
