@@ -30,7 +30,7 @@ class OrdersContainer extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        orders: state?.orderReducer?.orders?.data, //refactor-this
+        orders: state?.orderReducer?.orders, //refactor-this
         user_id: state?.user?.user?.data?.id
     }
 }
