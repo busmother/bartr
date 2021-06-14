@@ -39,12 +39,6 @@ class App extends Component {
         this.setState()
     }
 
-    // componentDidUpdate = (preprops) => {
-    //     if (preprops.user.user.status !== this.props.user.user.status){
-    //         this.props.clearOrders()
-    //     }
-    // }
-
     componentWillReceiveProps = () => {
         if (this.props.user.status !== "resolved"){
         this.togglePop();
@@ -52,8 +46,9 @@ class App extends Component {
     }
 
     greeting = () => {
+        console.log("this.props from App", this.props)
         if (this.props.user?.status && this.props.user.status === "resolved"){
-                return (<h4>Hi {this.props.user.user.username}</h4>)
+                return (<h4>Hi {this.props.user.user.data.attributes.username}</h4>)
             }
         }
 
@@ -64,7 +59,7 @@ class App extends Component {
                 {this.state.open ? <PopUp open={this.state.open} /> : null }  
                 <div className="header">
                     <h1>Bartr</h1>
-                    {this.greeting()}
+                    {/* {this.greeting()} */}
                 </div>
                 <nav className="nav">
                 <br></br>

@@ -39,17 +39,3 @@ export const addUser = (data) => {
         .catch(error=>console.log("error", error))
     }
 }
-
-// export const fetchCurrentOrder = (user_id) => {
-//     console.log("the user_id from fetchCurrentOrder", user_id)
-//     return (dispatch) => {
-//         fetch(`http://localhost:3000/api/v1/users/${user_id}`)
-//         .then(response => console.log("response.json()", response.json()))
-//         .then(data => console.log("data from fetchCurrentOrder", data))
-//         .then(order => dispatch({
-//             type: 'fetchCurrentOrder',
-//             payload: order
-//         }))
-//         .catch(error=>console.log("error", error))
-//     }
-// }

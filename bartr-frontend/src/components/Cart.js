@@ -5,27 +5,26 @@ import { CSSTransition } from 'react-transition-group'
 import './cart-stylesheet.css'
 import Button from './Button.js'
 import { connect } from 'react-redux'
-import { fetchItems } from '../actions/item'
-import { fetchCurrentOrder } from '../actions/user'
-
-const items = [
-    {id: 1, name: `insulin`, price: `everything at a price`}
-]
+import { fetchOrders } from '../actions/order'
 
 class Cart extends Component {
 
     handleClick = (e) => {
         e.preventDefault();
-        // update this to initiate a checkout instead
         console.log("you clicked the checkout button!")
     }
 
+    currentItems(order_id){
+        let orders = this.props.orders
+        let itemsInCart = orders.filter(function(order){
+            return order.id === order_id
+        })
+        itemsInCart()
+    }
+
     componentDidMount() {
-        let user_id = this.props.user_id;
-        let order_id = this.props.open_order_id
-        fetchItems(user_id, order_id)
-        // fetchCurrentOrder(user_id)
-        console.log("this.props in the Cart", this.props)
+        let user_id = this.props.user_id
+        this.props.fetchOrders(user_id)
     }
     
     render(props){
@@ -35,7 +34,7 @@ class Cart extends Component {
                 <p className="cart-header"> Hi there! I'm the cart!</p>
                 <CSSTransition transitionName="animation">
                 <ul>
-                {items.map((item) => (
+                {this.props.order_items.map((item) => (
                     <Grid
                     item
                     key={item.id}
@@ -53,16 +52,14 @@ class Cart extends Component {
 }
 
 const mapStateToProps = state => {
+    const last_order = state.orderReducer.orders.data.length - 1
     return {
-        user_id: state.user.user.id,
-        open_order_id: state.orderReducer.orders.data.[0].attributes.open_order_id
+        user_id: state?.user?.user?.data?.id,
+        open_order_id: state?.orderReducer?.orders?.data?.[0]?.attributes?.open_order_id,
+        order_items: state?.orderReducer?.orders?.data?.[last_order]?.attributes?.items
+        // items: state.orderReducer.orders // last order, items
     }
 }
 
-const mapDispatchToProps = state => {
-    return {
-        fetchCurrentOrder: state.fetchCurrentOrder,
-    }
-}
+export default connect(mapStateToProps, { fetchOrders })(Cart)
 
-export default connect(mapStateToProps, { fetchItems })(Cart)
