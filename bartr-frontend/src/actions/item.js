@@ -4,7 +4,7 @@ export function fetchItems(user_id, order_id){
         .then(response => response.json())
         .then(items => dispatch({
             type: 'FETCH_ITEMS',
-            payload: items
+            payload: items.data
         }))
         .catch(error=>console.log("error", error))
     }

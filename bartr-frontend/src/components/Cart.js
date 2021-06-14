@@ -53,7 +53,7 @@ const mapStateToProps = state => { //refactor-this
         user_id: state?.user?.user?.data?.id, //refactor-this
         open_order_id: state?.user?.user?.data?.attributes?.open_order_id, //refactor-this
         order_total: state?.orderReducer?.orders?.data?.[last_order]?.attributes.order_total, //refactor-this
-        items: state?.itemReducer?.items?.data //refactor-this
+        items: state?.itemReducer?.items //refactor-this
     }
 }
 
