@@ -4,7 +4,7 @@ export function fetchProducts(action){
         .then(response => response.json())
         .then(products => dispatch({
             type: 'FETCH_PRODUCTS',
-            payload: products
+            payload: products.data
         }))
         .catch(error=>console.log("error", error))
     }
