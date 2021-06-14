@@ -48,12 +48,12 @@ class Cart extends Component {
 }
 
 const mapStateToProps = state => { //refactor-this
-    const last_order = state?.orderReducer?.orders?.data?.length - 1
+    const last_order_index = state?.orderReducer?.orders?.data?.length - 1
     return {
-        user_id: state?.user?.user?.data?.id, //refactor-this
-        open_order_id: state?.user?.user?.data?.attributes?.open_order_id, //refactor-this
-        order_total: state?.orderReducer?.orders?.data?.[last_order]?.attributes.order_total, //refactor-this
-        items: state?.itemReducer?.items //refactor-this
+        user_id: state?.user?.user?.data?.attributes?.id,
+        open_order_id: state?.user?.open_order_id,
+        order_total: state?.orderReducer?.orders?.data?.[last_order_index]?.attributes.order_total,
+        items: state?.itemReducer?.items 
     }
 }
 
