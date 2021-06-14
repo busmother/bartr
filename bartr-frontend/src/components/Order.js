@@ -3,10 +3,11 @@ import Moment from 'react-moment'
 
 
 const Order = ({ order }) => {
+    //refactor-this
     return (
         
         <div>
-            <h4>Order #{order.id} – <em><Moment format='MMMM Do YYYY, h:mm:ss a'>{order.attributes.updated_at}</Moment></em> </h4>
+            <h4>Order #{order.id} – <em><Moment format='MMMM Do YYYY, h:mm:ss a'>{order.attributes.updated_at}</Moment></em> </h4> 
             <h5>Summary: </h5>
             <h5>Delivery address:<br></br>
             {order.attributes.recipient}<br></br>

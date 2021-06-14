@@ -1,12 +1,11 @@
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { login, addUser } from '.././actions/user'
-import { closePopUp } from '.././actions/popUp'
 import React, { useState } from 'react'
 
 export default function LoginComponent(props) {
 
     const dispatch = useDispatch();
-    const {username, id} = useSelector(state => state.user);
+    // const {username, id} = useSelector(state => state.user); //this was flagged as unused, but not sure if that's true
     const [name, setName] = useState('');
 
     const handleChange = (e) => {

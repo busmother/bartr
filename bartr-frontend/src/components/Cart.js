@@ -22,7 +22,7 @@ class Cart extends Component {
         this.props.fetchItems(user_id, open_order_id)
     }
     
-    render(props){
+    render(props){ 
         console.log("this.props from Cart", this.props)
         return(
             <div>
@@ -47,13 +47,13 @@ class Cart extends Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = state => { //refactor-this
     const last_order = state?.orderReducer?.orders?.data?.length - 1
     return {
-        user_id: state?.user?.user?.data?.id,
-        open_order_id: state?.user?.user?.data?.attributes?.open_order_id, 
-        order_total: state?.orderReducer?.orders?.data?.[last_order]?.attributes.order_total,
-        items: state?.itemReducer?.items?.data
+        user_id: state?.user?.user?.data?.id, //refactor-this
+        open_order_id: state?.user?.user?.data?.attributes?.open_order_id, //refactor-this
+        order_total: state?.orderReducer?.orders?.data?.[last_order]?.attributes.order_total, //refactor-this
+        items: state?.itemReducer?.items?.data //refactor-this
     }
 }
 

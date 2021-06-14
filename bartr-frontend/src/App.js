@@ -10,7 +10,7 @@ import ProductsContainer from './components/ProductsContainer'
 import { connect } from 'react-redux'
 import { setStatus } from "./actions/user"
 import { clearOrders } from './actions/order'
-import { openPopUp } from './actions/popUp'
+// import { openPopUp } from './actions/popUp' //flagged as unused variable but not sure if that's true
 import Button from './components/Button'
 import LoginComponent from './components/Login'
 import OrdersContainer from './components/OrdersContainer'
@@ -45,7 +45,7 @@ class App extends Component {
         }
     }
 
-    greeting = () => {
+    greeting = () => { //refactor-this
         if (this.props.user?.status && this.props.user.status === "resolved"){
                 return (<h4>Hi {this?.props?.user?.user?.data?.attributes?.username}</h4>)
             }
