@@ -21,7 +21,7 @@ class ProductsContainer extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        products: state.productReducer.products //refactor-this
+        products: state.productReducer.products
     }
 }
 

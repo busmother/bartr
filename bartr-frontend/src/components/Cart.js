@@ -12,18 +12,26 @@ class Cart extends Component {
 
     handleClick = (e) => {
         e.preventDefault();
+        console.log("this.props from Cart", this.props)
         console.log("you clicked the checkout button!")
     }
 
     componentDidMount() {
         let user_id = this.props.user_id
-        let open_order_id = this.props.open_order_id
         this.props.fetchOrders(user_id)
+        let open_order_id = this.props.open_order_id
         this.props.fetchItems(user_id, open_order_id)
     }
-    
+
+    shouldComponentUpdate(prevProps, props){
+        if(prevProps !== props) {
+            return true
+        } else {
+            return false
+        }
+    }
+
     render(props){ 
-        console.log("this.props from Cart", this.props)
         return(
             <div>
                 <em><p className="cart-header"> Your cart:</p></em>
@@ -34,7 +42,7 @@ class Cart extends Component {
                     item
                     key={item.id}
                     >
-                        <li>{item.attributes.product.name} - ${item.attributes.product.price}</li>
+                        <li>{item?.attributes?.product?.name} - ${item?.attributes?.product?.price}</li>
                     </Grid>
 
                 ))}
@@ -47,12 +55,12 @@ class Cart extends Component {
     }
 }
 
-const mapStateToProps = state => { //refactor-this
+const mapStateToProps = state => {
     const last_order_index = state?.orderReducer?.orders?.data?.length - 1
     return {
         user_id: state?.user?.user?.data?.attributes?.id,
-        open_order_id: state?.user?.open_order_id,
-        order_total: state?.orderReducer?.orders?.data?.[last_order_index]?.attributes.order_total,
+        open_order_id: state?.user?.user?.data?.attributes?.open_order_id,
+        order_total: state?.orderReducer?.orders?.[last_order_index]?.attributes.order_total,
         items: state?.itemReducer?.items 
     }
 }

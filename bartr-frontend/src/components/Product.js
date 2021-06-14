@@ -6,8 +6,8 @@ import { addItem } from '.././actions/item'
 
 const Product = ({ product }) => {
     const dispatch = useDispatch()
-    const user_id = useSelector(state => state?.user?.user?.data?.id) //refactor-this
-    const open_order_id = useSelector(state => state?.user?.user?.data?.attributes?.open_order_id)//refactor-this
+    const user_id = useSelector(state => state?.user?.user?.data?.id)
+    const open_order_id = useSelector(state => state?.user?.user?.data?.attributes?.open_order_id)
     
     return(
         <div className="product-card" >

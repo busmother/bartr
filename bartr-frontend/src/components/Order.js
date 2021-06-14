@@ -3,7 +3,6 @@ import Moment from 'react-moment'
 
 
 const Order = ({ order }) => {
-    //refactor-this
     return (
         
         <div>

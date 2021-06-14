@@ -45,7 +45,7 @@ class App extends Component {
         }
     }
 
-    greeting = () => { //refactor-this
+    greeting = () => { 
         if (this.props.user?.status && this.props.user.status === "resolved"){
                 return (<h4>Hi {this?.props?.user?.user?.data?.attributes?.username}</h4>)
             }
