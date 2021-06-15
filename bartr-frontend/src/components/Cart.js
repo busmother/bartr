@@ -19,9 +19,13 @@ class Cart extends Component {
         this.props.removeItem(this.props.user_id, this.props.open_order_id, item_id)
     }
 
+    componentWillReceiveProps(){
+        let user_id = this?.props?.user_id
+        this.props.fetchOrders(user_id)
+    }
     componentDidMount() {
         let user_id = this.props.user_id
-        this.props.fetchOrders(user_id)
+        // this.props.fetchOrders(user_id)
         let open_order_id = this.props.open_order_id
         this.props.fetchItems(user_id, open_order_id)
     }
@@ -35,6 +39,7 @@ class Cart extends Component {
     }
     
     render(props){ 
+        console.log("this.props from cart", this.props)
         return(
             <div>
                 <em><p className="cart-header"> Your cart:</p></em>
@@ -59,7 +64,8 @@ class Cart extends Component {
 }
 
 const mapStateToProps = state => {
-    const last_order_index = state?.orderReducer?.orders?.data?.length - 1
+    const last_order_index = state?.orderReducer?.orders?.length - 1
+    console.log("last_order_index", last_order_index)
     return {
         user_id: state?.user?.user?.data?.attributes?.id,
         open_order_id: state?.user?.user?.data?.attributes?.open_order_id,
