@@ -6,14 +6,20 @@ import './cart-stylesheet.css'
 import Button from './Button.js'
 import { connect } from 'react-redux'
 import { fetchOrders } from '../actions/order'
-import { fetchItems } from '../actions/item'
+import { fetchItems, removeItem } from '../actions/item'
 
 class Cart extends Component {
 
-    handleClick = (e) => {
+    checkoutClick = (e) => {
         e.preventDefault();
-        console.log("this.props from Cart", this.props)
-        console.log("you clicked the checkout button!")
+    }
+// 
+    removeClick = (e) => {
+        e.preventDefault()
+        let user_id = this.props.user_id
+        let open_order_id = this.props.open_order_id
+        // let item_id = key
+        this.props.removeItem(user_id, open_order_id, )
     }
 
     componentDidMount() {
@@ -30,7 +36,7 @@ class Cart extends Component {
             return false
         }
     }
-
+    
     render(props){ 
         return(
             <div>
@@ -42,14 +48,14 @@ class Cart extends Component {
                     item
                     key={item.id}
                     >
-                        <li>{item?.attributes?.product?.name} - ${item?.attributes?.product?.price}</li>
+                        <li>{item?.attributes?.product?.name} - ${item?.attributes?.product?.price} <Button key={item.id} handleClick={this.removeClick} label="Remove"/> </li>
                     </Grid>
 
                 ))}
                 </ul>
                 </CSSTransition>
                 <em>Total: ${this?.props?.order_total}</em><br></br>
-                <Button handleClick={this.handleClick} label="Checkout"/>
+                <Button handleClick={this.checkoutClick} label="Checkout"/>
             </div>
         )
     }
@@ -57,6 +63,7 @@ class Cart extends Component {
 
 const mapStateToProps = state => {
     const last_order_index = state?.orderReducer?.orders?.data?.length - 1
+    console.log("you're in mapStateToProps, here's state.items", state)
     return {
         user_id: state?.user?.user?.data?.attributes?.id,
         open_order_id: state?.user?.user?.data?.attributes?.open_order_id,

@@ -17,7 +17,6 @@ class OrdersContainer extends React.Component {
     }
 
     render() {
-        console.log("this.props from orders container", this.props)
         return(
             <div>
                 <Orders orders={this?.props?.orders?.filter(order => {
