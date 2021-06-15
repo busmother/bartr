@@ -26,8 +26,7 @@ export const addItem = (data, user_id, order_id) => {
     }
 }
 
-export const removeItem = (user_id, order_id, item) => {
-    let item_id = item.id
+export const removeItem = (user_id, order_id, item_id) => {
     return (dispatch) => {
         fetch(`http://localhost:3000/api/v1/users/${user_id}/orders/${order_id}/items/${item_id}`, {
             headers: {

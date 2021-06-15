@@ -16,7 +16,7 @@ class Cart extends Component {
 
     removeClick = (e, item_id) => {
         e.preventDefault();
-        console.log("item from removeClick", item)
+        console.log("item from removeClick", item_id)
         this.props.removeItem(this.props.user_id, this.props.open_order_id, item_id)
     }
 
@@ -46,9 +46,9 @@ class Cart extends Component {
                     item
                     key={item.id}
                     >
-                        <li>{item?.attributes?.product?.name} - ${item?.attributes?.product?.price} <Button key={item.id} handleClick={this.removeClick} item_id={item.id} label="Remove"/> </li>
+                        <li>{item?.attributes?.product?.name} - ${item?.attributes?.product?.price} 
+                        <Button key={item.id} handleClick={(e) => this.removeClick(e, item.id)} item_id={item.id} label="Remove"/> </li>
                     </Grid>
-
                 ))}
                 </ul>
                 </CSSTransition>
