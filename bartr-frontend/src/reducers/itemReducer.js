@@ -11,8 +11,8 @@ export default function itemReducer(state = {items: []}, action) {
             return (
                 {...state, 
                     items: [
-                        ...state.items.slice(0, removalIndex),
-                    ...state.items.slice(removalIndex + 1)
+                        ...state.items.slice(0, removalIndex)
+                    // ...state.items.slice(removalIndex + 1)
                     ]
                 }
             )

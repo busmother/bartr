@@ -23,6 +23,7 @@ class Cart extends Component {
     //     let user_id = this?.props?.user_id
     //     this.props.fetchOrders(user_id)
     // }
+    
     componentDidMount() {
         let user_id = this.props.user_id
         this.props.fetchOrders(user_id)

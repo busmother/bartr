@@ -35,7 +35,7 @@ export const removeItem = (user_id, order_id, item_id) => {
             }, 
             method: 'DELETE',
         })
-        .then(dispatch({type: 'REMOVE_ITEM'}))
+        .then(dispatch({type: 'REMOVE_ITEM', payload: item_id}))
         // .then(response => response.json())
         // .then(item => console.log("item from removeItem", item))
         .catch(error=>console.log("error", error))
