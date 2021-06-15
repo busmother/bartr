@@ -19,24 +19,24 @@ class Cart extends Component {
         this.props.removeItem(this.props.user_id, this.props.open_order_id, item_id)
     }
 
-    componentWillReceiveProps(){
-        let user_id = this?.props?.user_id
-        this.props.fetchOrders(user_id)
-    }
+    // componentWillReceiveProps(){
+    //     let user_id = this?.props?.user_id
+    //     this.props.fetchOrders(user_id)
+    // }
     componentDidMount() {
         let user_id = this.props.user_id
-        // this.props.fetchOrders(user_id)
+        this.props.fetchOrders(user_id)
         let open_order_id = this.props.open_order_id
         this.props.fetchItems(user_id, open_order_id)
     }
 
-    shouldComponentUpdate(prevProps, props){
-        if(prevProps !== props) {
-            return true
-        } else {
-            return false
-        }
-    }
+    // shouldComponentUpdate(prevProps, props){
+    //     if(prevProps !== props) {
+    //         return true
+    //     } else {
+    //         return false
+    //     }
+    // }
     
     render(props){ 
         return(
@@ -49,7 +49,7 @@ class Cart extends Component {
                     item
                     key={item.id}
                     >
-                        <li>{item?.attributes?.product?.name} - ${item?.attributes?.product?.price} 
+                        <li id={item.id}>{item?.attributes?.product?.name} - ${item?.attributes?.product?.price} 
                         <Button key={item.id} handleClick={(e) => this.removeClick(e, item.id)} item_id={item.id} label="Remove"/> </li>
                     </Grid>
                 ))}

@@ -5,7 +5,8 @@ export default function itemReducer(state = {items: []}, action) {
             return {items: action.payload}
         case 'ADD_ITEM':
             return {items: [...state.items, action.payload.data]}
-case 'REMOVE_ITEM':
+        case 'REMOVE_ITEM':
+            console.log("action from REMOVE_ITEM", action)
             const removalIndex = state.items.findIndex(item => item.id === action.id);
             return (
                 {...state, 

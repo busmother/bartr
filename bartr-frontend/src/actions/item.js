@@ -33,8 +33,11 @@ export const removeItem = (user_id, order_id, item_id) => {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             }, 
-            method: 'DELETE'
+            method: 'DELETE',
         })
+        .then(dispatch({type: 'REMOVE_ITEM'}))
+        // .then(response => response.json())
+        // .then(item => console.log("item from removeItem", item))
         .catch(error=>console.log("error", error))
     }
 }

@@ -34,10 +34,10 @@ class App extends Component {
         }));
     }
 
-    componentWillMount = () => {
-        this.props.setStatus()
-        this.setState()
-    }
+    // componentWillMount = () => {
+    //     this.props.setStatus()
+    //     this.setState()
+    // }
 
     componentWillReceiveProps = () => {
         if (this.props.user.status !== "resolved"){
