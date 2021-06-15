@@ -31,7 +31,7 @@ class Cart extends Component {
         if (this?.props?.items){
             cartItems = this?.props?.items
             let total = cartItems.map(item => parseInt(item.attributes.product.price)).reduce((a, b) => a+b, 0)
-            return total
+            return `Total: $ ${total}`
         }else{
             return " Loading..."
         }
@@ -54,7 +54,7 @@ class Cart extends Component {
                 ))}
                 </ul>
                 </CSSTransition>
-                <em>Total: ${this.cartTotal()}</em><br></br>
+                <em>{this.cartTotal()}</em><br></br>
                 <Button handleClick={this.checkoutClick} label="Checkout"/>
             </div>
         )

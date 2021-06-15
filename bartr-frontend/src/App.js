@@ -20,7 +20,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            open: false,
+            open: true,
             user: {
                 status: "idle"
             }
@@ -33,11 +33,6 @@ class App extends Component {
             open: !state.open
         }));
     }
-
-    // componentWillMount = () => {
-    //     this.props.setStatus()
-    //     this.setState()
-    // }
 
     componentWillReceiveProps = () => {
         if (this.props.user.status !== "resolved"){

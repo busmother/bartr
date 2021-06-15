@@ -2,10 +2,10 @@ export const setStatus = () => {
     let username = window.localStorage.getItem("username");
     return (dispatch) => {
         if (username === "undefined"){
-            dispatch({type: "noUser",}) // added this 6/10, doesn't do anything?
+            dispatch({type: "NO_USER",}) // added this 6/10, doesn't do anything?
         }
         if (username !== "undefined"){
-            dispatch({type: "setUser", payload: username})
+            dispatch({type: "SET_USER", payload: username})
         }       
     } 
 }
@@ -13,14 +13,14 @@ export const setStatus = () => {
 export const login = (username) => {
     window.localStorage.setItem("username", username)
     return {
-        type: "setUser", 
+        type: "SET_USER", 
         payload: username 
     }
 }
 
 export const logout = () => {
     return (dispatch) => {
-        dispatch({type: "logout"})
+        dispatch({type: "LOGOUT"})
     }
 }
 
@@ -35,7 +35,8 @@ export const addUser = (data) => {
             body: JSON.stringify({user: {username: data}})
         })
         .then(response => response.json())
-        .then(user => dispatch({type: 'setUser', payload: user}))
+        .then(user => console.log("user from addUser", user))
+        .then(user => dispatch({type: 'SET_USER', payload: user}))
         .catch(error=>console.log("error", error))
     }
 }

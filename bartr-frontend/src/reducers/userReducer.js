@@ -1,15 +1,12 @@
 export default (state = {user: {username: ''}, status: "pending" }, action) => {
     switch (action.type) {
-        case "setStatus":
-            return {...state, status: action.payload };
-        case "setUser":
+        case "SET_USER":
+            console.log("action.payload from setUser", action.payload)
             return {user: action.payload, status: "resolved"};
-        case "noUser":
+        case "NO_USER":
             return { status: "idle"};
-        case "logout":
+        case "LOGOUT":
             return {...state, user: {username: ''}, status: "idle"};
-        case "fetchCurrentOrder":
-            return {...state, current_order_id: action.payload}
         default:
             return state;
     }
