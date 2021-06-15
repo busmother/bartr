@@ -19,6 +19,6 @@
 .sidebar{
     display: flex;
     flex-wrap: nowrap;
-    height: 815px;
+    height: 830px;
     overflow: scroll;
 }

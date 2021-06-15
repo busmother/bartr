@@ -39,7 +39,6 @@ class Cart extends Component {
     }
     
     render(props){ 
-        console.log("this.props from cart", this.props)
         return(
             <div>
                 <em><p className="cart-header"> Your cart:</p></em>
@@ -65,7 +64,6 @@ class Cart extends Component {
 
 const mapStateToProps = state => {
     const last_order_index = state?.orderReducer?.orders?.length - 1
-    console.log("last_order_index", last_order_index)
     return {
         user_id: state?.user?.user?.data?.attributes?.id,
         open_order_id: state?.user?.user?.data?.attributes?.open_order_id,
