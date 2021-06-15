@@ -5,7 +5,6 @@ import React, { useState } from 'react'
 export default function LoginComponent(props) {
 
     const dispatch = useDispatch();
-    // const {username, id} = useSelector(state => state.user); //this was flagged as unused, but not sure if that's true
     const [name, setName] = useState('');
 
     const handleChange = (e) => {
