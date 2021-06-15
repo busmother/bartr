@@ -21,7 +21,9 @@ export const addItem = (data, user_id, order_id) => {
             body: JSON.stringify(data)
         })
         .then(response => response.json())
-        .then(item => dispatch({type: 'ADD_ITEM', payload: item}))
+        .then(item => dispatch({
+            type: 'ADD_ITEM', 
+            payload: item}))
         .catch(error=>console.log("error", error))
     }
 }
@@ -36,7 +38,6 @@ export const removeItem = (user_id, order_id, item_id) => {
             method: 'DELETE',
         })
         .then(dispatch({type: 'REMOVE_ITEM', payload: item_id}))
-        .then(dispatch({type: 'FETCH_ORDERS', payload: user_id }))
         .catch(error=>console.log("error", error))
     }
 }

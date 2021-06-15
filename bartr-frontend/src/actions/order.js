@@ -10,6 +10,18 @@ export function fetchOrders(user_id){
     }
 }
 
+export function fetchOrderTotal(user_id, order_id){
+    return (dispatch) => {
+        fetch(`http://localhost:3000/api/v1/users/${user_id}/orders/${order_id}`)
+        .then(response => response.json())
+        .then(order => dispatch({
+            type: 'FETCH_ORDER_TOTAL',
+            payload: order?.attributes?.order_total
+        }))
+        .catch(error=>console.log("error", error))
+    }
+}
+
 export const addOrder = (data) => {
     return (dispatch) => {
         fetch('http://localhost:3000/api/v1/orders', {
