@@ -6,6 +6,10 @@ const buttonStyle = {
 
 class Button extends Component {
 
+    constructor(props) {
+        super(props);
+        this.handleClick = this.props.handleClick.bind(this)
+    }
 
     render() {
         return (

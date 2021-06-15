@@ -13,13 +13,11 @@ class Cart extends Component {
     checkoutClick = (e) => {
         e.preventDefault();
     }
-// 
-    removeClick = (e) => {
-        e.preventDefault()
-        let user_id = this.props.user_id
-        let open_order_id = this.props.open_order_id
-        // let item_id = key
-        this.props.removeItem(user_id, open_order_id, )
+
+    removeClick = (e, item_id) => {
+        e.preventDefault();
+        console.log("item from removeClick", item)
+        this.props.removeItem(this.props.user_id, this.props.open_order_id, item_id)
     }
 
     componentDidMount() {
@@ -48,7 +46,7 @@ class Cart extends Component {
                     item
                     key={item.id}
                     >
-                        <li>{item?.attributes?.product?.name} - ${item?.attributes?.product?.price} <Button key={item.id} handleClick={this.removeClick} label="Remove"/> </li>
+                        <li>{item?.attributes?.product?.name} - ${item?.attributes?.product?.price} <Button key={item.id} handleClick={this.removeClick} item_id={item.id} label="Remove"/> </li>
                     </Grid>
 
                 ))}
@@ -63,7 +61,6 @@ class Cart extends Component {
 
 const mapStateToProps = state => {
     const last_order_index = state?.orderReducer?.orders?.data?.length - 1
-    console.log("you're in mapStateToProps, here's state.items", state)
     return {
         user_id: state?.user?.user?.data?.attributes?.id,
         open_order_id: state?.user?.user?.data?.attributes?.open_order_id,
@@ -72,5 +69,5 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { fetchOrders, fetchItems })(Cart)
+export default connect(mapStateToProps, { fetchOrders, fetchItems, removeItem })(Cart)
 
