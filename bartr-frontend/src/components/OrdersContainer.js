@@ -10,11 +10,11 @@ class OrdersContainer extends React.Component {
         this.props.fetchOrders(user_id)
     }
 
-    componentDidUpdate = (preprops) => {
-        if (preprops.orders !== this.props.orders){
-            this.props.clearOrders()
-        }
-    }
+    // componentDidUpdate = (preprops) => {
+    //     if (preprops.orders !== this.props.orders){
+    //         this.props.clearOrders()
+    //     }
+    // }
 
     render() {
         return(

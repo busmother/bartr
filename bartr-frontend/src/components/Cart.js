@@ -10,6 +10,13 @@ import { fetchItems, removeItem } from '../actions/item'
 
 class Cart extends Component {
 
+    componentDidMount() {
+        let user_id = this.props.user_id
+        this.props.fetchOrders(user_id)
+        let open_order_id = this.props.open_order_id
+        this.props.fetchItems(user_id, open_order_id)
+    }
+
     checkoutClick = (e) => {
         e.preventDefault();
     }
@@ -19,11 +26,15 @@ class Cart extends Component {
         this.props.removeItem(this.props.user_id, this.props.open_order_id, item_id)
     }
 
-    componentDidMount() {
-        let user_id = this.props.user_id
-        this.props.fetchOrders(user_id)
-        let open_order_id = this.props.open_order_id
-        this.props.fetchItems(user_id, open_order_id)
+    cartTotal() {
+        let cartItems 
+        if (this?.props?.items){
+            cartItems = this?.props?.items
+            let total = cartItems.map(item => parseInt(item.attributes.product.price)).reduce((a, b) => a+b, 0)
+            return total
+        }else{
+            return " Loading..."
+        }
     }
     
     render(props){ 
@@ -43,7 +54,7 @@ class Cart extends Component {
                 ))}
                 </ul>
                 </CSSTransition>
-                <em>Total: ${this?.props?.order_total}</em><br></br>
+                <em>Total: ${this.cartTotal()}</em><br></br>
                 <Button handleClick={this.checkoutClick} label="Checkout"/>
             </div>
         )
