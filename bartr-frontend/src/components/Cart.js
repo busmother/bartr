@@ -16,7 +16,6 @@ class Cart extends Component {
 
     removeClick = (e, item_id) => {
         e.preventDefault();
-        console.log("item from removeClick", item_id)
         this.props.removeItem(this.props.user_id, this.props.open_order_id, item_id)
     }
 
