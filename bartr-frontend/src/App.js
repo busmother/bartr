@@ -39,7 +39,7 @@ class App extends Component {
     }
 
     greeting = () => { 
-        if (this.props?.loggedIn && this.props.user.username){ 
+        if (this?.props?.loggedIn == true){ 
                 return (<h4>Hi {this?.props?.user?.user?.data?.attributes?.username}</h4>)
             }
         }
