@@ -24,7 +24,7 @@ export const logout = () => {
     }
 }
 
-export const addUser = (data) => {
+export const addUser = (name) => {
     return (dispatch) => {
         fetch('http://localhost:3000/api/v1/users', {
             headers: {
@@ -32,10 +32,9 @@ export const addUser = (data) => {
                 'Accept': 'application/json'
             },
             method: 'POST',
-            body: JSON.stringify({user: {username: data}})
+            body: JSON.stringify({user: {username: name}})
         })
         .then(response => response.json())
-        .then(user => console.log("user from addUser", user))
         .then(user => dispatch({type: 'SET_USER', payload: user}))
         .catch(error=>console.log("error", error))
     }
