@@ -15,6 +15,8 @@ export default function itemReducer(state = {items: []}, action) {
                     ]
                 }
             )
+        case 'CLEAR_ITEMS':
+            return {items: []}
         default:
             return state
     }
