@@ -11,7 +11,6 @@ export const setStatus = () => {
 }
 
 export const logout = () => {
-    console.log("you hit logout action")
     return (dispatch) => {
         dispatch({type: "LOGOUT"})
     }

@@ -1,5 +1,4 @@
 export default (state = {user: {username: ''}, loggedIn: false }, action) => {
-    console.log("state from userReducer", state)
     switch (action.type) {
         case "SET_USER":
             return {user: action.payload, loggedIn: true};

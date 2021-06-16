@@ -45,7 +45,6 @@ class App extends Component {
         }
 
     render(){
-        console.log("this.props from App", this.props)
         return(
             <Router>
             <div className="wrap">
@@ -91,7 +90,9 @@ class App extends Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         logout: () => dispatch({type: 'LOGOUT'}),
-        clearOrders: () => dispatch({type: 'CLEAR_ORDERS'})
+        clearOrders: () => dispatch({type: 'CLEAR_ORDERS'}),
+        clearProducts: () => dispatch({type: 'CLEAR_PRODUCTS'}),
+        clearItems: () => dispatch({type: 'CLEAR_ITEMS'})
     }
  }
 
