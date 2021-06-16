@@ -33,7 +33,8 @@ class App extends Component {
     logoutSequence = () => {
         this.toggleLoginPop()
         this.props.clearOrders(); // changes state to orders = [] 
-        // need a clearItems() function too to clear the cart
+        this.props.clearItems(); // changes state to items = []
+        this.props.clearProducts(); // changes state to products = []
         this.props.logout(); //sets status to idle
         
     }
@@ -89,10 +90,10 @@ class App extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        logout: () => dispatch({type: 'LOGOUT'}),
         clearOrders: () => dispatch({type: 'CLEAR_ORDERS'}),
+        clearItems: () => dispatch({type: 'CLEAR_ITEMS'}),
         clearProducts: () => dispatch({type: 'CLEAR_PRODUCTS'}),
-        clearItems: () => dispatch({type: 'CLEAR_ITEMS'})
+        logout: () => dispatch({type: 'LOGOUT'})
     }
  }
 
