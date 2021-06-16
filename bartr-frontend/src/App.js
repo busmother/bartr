@@ -25,10 +25,11 @@ class App extends Component {
                 status: "idle"
             }
         };
-        this.togglePop = this.togglePop.bind(this);
+        this.toggleLoginPop = this.toggleLoginPop.bind(this);
     }
 
-    togglePop = () => {
+    toggleLoginPop = () => {
+        console.log("you clicked logout button")
         this.setState(state => ({
             open: !state.open
         }));
@@ -36,7 +37,7 @@ class App extends Component {
 
     componentWillReceiveProps = () => {
         if (this.props.user.status !== "resolved"){
-        this.togglePop();
+        this.toggleLoginPop();
         }
     }
 
@@ -92,7 +93,7 @@ class App extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        logout: () => dispatch({type: 'logout'}),
+        logout: () => dispatch({type: 'LOGOUT'}),
         openPopUp: () => dispatch({type: 'OPEN'}),
         setStatus,
         clearOrders
