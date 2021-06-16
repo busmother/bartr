@@ -5,7 +5,7 @@ export default function orderReducer(state = {orders: []}, action) {
             return {orders: action.payload}
         case 'ADD_ORDER':
             return {...state, orders: [...state.orders, action.payload]}
-        case 'ClEAR_ORDERs': 
+        case 'CLEAR_ORDERS': 
             return {...state, orders: []}
         default:
             return state

@@ -37,6 +37,7 @@ export const addOrder = (data) => {
 }
 
 export const clearOrders = () => {
+    console.log("you hit clearOrders action")
     return (dispatch) => {
         dispatch({type: "CLEAR_ORDERS"})
     }

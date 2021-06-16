@@ -16,7 +16,6 @@ class ProductsContainer extends React.Component {
             </div>
         )
     }
-
 }
 
 const mapStateToProps = state => {

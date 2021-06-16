@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import { login, addUser } from '.././actions/user'
+import { addUser } from '.././actions/user'
 import React, { useState } from 'react'
 
 export default function LoginComponent(props) {
@@ -15,13 +15,12 @@ export default function LoginComponent(props) {
         e.preventDefault()
         if (name.length){
         dispatch(addUser(name))
-        dispatch(login(name))
         }
     };
 
     return(
         <div>
-            <h3>Login:</h3>
+            <h3>Please enter a name to continue:</h3>
             <form onSubmit = {handleSubmit}>
                 <label for = "username">Username:</label>
                 <input
@@ -35,4 +34,3 @@ export default function LoginComponent(props) {
         </div>
     );
 }
-

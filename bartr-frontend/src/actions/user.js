@@ -10,15 +10,8 @@ export const setStatus = () => {
     } 
 }
 
-export const login = (username) => {
-    window.localStorage.setItem("username", username)
-    return {
-        type: "SET_USER", 
-        payload: username 
-    }
-}
-
 export const logout = () => {
+    console.log("you hit logout action")
     return (dispatch) => {
         dispatch({type: "LOGOUT"})
     }

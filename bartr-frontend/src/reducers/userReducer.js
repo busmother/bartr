@@ -1,12 +1,12 @@
-export default (state = {user: {username: ''}, status: "pending" }, action) => {
+export default (state = {user: {username: ''}, loggedIn: false }, action) => {
+    console.log("state from userReducer", state)
     switch (action.type) {
         case "SET_USER":
-            console.log("action.payload from SET_USER", action.payload)
-            return {user: action.payload, status: "resolved"};
+            return {user: action.payload, loggedIn: true};
         case "NO_USER":
-            return { status: "idle"};
+            return { user: {username: ''}, loggedIn: false};
         case "LOGOUT":
-            return {...state, user: {username: ''}, status: "idle"};
+            return {user: {username: ''}, loggedIn: false};
         default:
             return state;
     }

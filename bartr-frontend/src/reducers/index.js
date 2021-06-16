@@ -3,12 +3,10 @@ import productReducer from './productReducer'
 import orderReducer from './orderReducer'
 import itemReducer from './itemReducer'
 import user from './userReducer'
-import popUpReducer from './popUpReducer'
 
 export default combineReducers({
     productReducer,
     orderReducer,
     itemReducer,
     user,
-    popUpReducer,
 })
