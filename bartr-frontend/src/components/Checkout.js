@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { closeOrder, newOrder } from '../actions/order'
+import { closeOrder } from '../actions/order'
 import { classnames } from 'classnames'
 import { validateFields } from './Validator'
-
 
 class Checkout extends Component {
 
@@ -175,4 +174,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { closeOrder, newOrder })(Checkout)
+export default connect(mapStateToProps, { closeOrder })(Checkout)

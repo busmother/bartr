@@ -38,7 +38,6 @@ class ValidateFields {
     }
 }
 
-
 const validateFields = new ValidateFields();
 
 export { validateFields }

@@ -32,30 +32,6 @@ export const closeOrder = (data, user_id, order_id) => {
     }
 }
 
-export const newOrder = (user_id) => {
-    return (dispatch) => {
-        fetch(`http://localhost:3000/api/v1/users/${user_id}/orders`, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }, 
-            method: 'POST',
-            body: JSON.stringify({
-                    open: true,
-                    user_id: user_id,
-                    recipient: null,
-                    street_address: null,
-                    city: null,
-                    state: null,
-                    zip_code: null
-            })
-        })
-        .then(response => response.json())
-        .then(order => console.log("order from newOrder", order))
-        .catch(error=>console.log("error", error))
-    }
-}
-
 export const clearOrders = () => {
     console.log("you hit clearOrders action")
     return (dispatch) => {
