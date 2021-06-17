@@ -19,7 +19,7 @@ export const closeOrder = (data, user_id, order_id) => {
             }, 
             method: 'PATCH',
             body: JSON.stringify({
-                    open: false,
+                    order_id: order_id,
                     recipient: data.recipient,
                     street_address: data.streetAddress,
                     city: data.city,
@@ -51,6 +51,7 @@ export const newOrder = (user_id) => {
             })
         })
         .then(response => response.json())
+        .then(order => console.log("order from newOrder", order))
         .catch(error=>console.log("error", error))
     }
 }

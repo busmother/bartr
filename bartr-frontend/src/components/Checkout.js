@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { closeOrder, newOrder } from '../actions/order'
 
+
 class Checkout extends Component {
 
     state = {
@@ -21,16 +22,16 @@ class Checkout extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.closeOrder(this.state, this.props.user_id, this.props.order_id)
-        this.props.newOrder(this.props.user_id)
-        // this.setState({
+        // this.props.newOrder(this.props.user_id)
+    }
+
+            // this.setState({
         //     recipient: '',
         //     streetAddress: '',
         //     city: '',
         //     state: '',
         //     zipCode: ''
         // })
-    }
-
 
     render(props){
         console.log("this.props from Checkout", this.props)
