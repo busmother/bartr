@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { closeOrder, newOrder } from '../actions/order'
+import { classnames } from 'classnames'
 import { validateFields } from './Validator'
 
 
@@ -61,7 +62,7 @@ class Checkout extends Component {
                             Success, All fields are validated
                         </p>
                     )}
-                <form onSubmit={this.handleSubmit}> {/* {evt => this.handleSubmit(evt)} */}
+                <form onSubmit={e => this.handleSubmit(e)}>
                     <label>Recipient:</label>
                     <input 
                         type='text' 
@@ -77,18 +78,78 @@ class Checkout extends Component {
                             this.handleChange(validateFields.validateRecipient, e)
                         }
                         onBlur={e =>
-                        this.handleBlur(validateFields.validateEmail, e)}
+                        this.handleBlur(validateFields.validateRecipient, e)}
                     />
                     <br></br><br></br>
                     <label>Street address:</label>
-                    <input type='text' placeholder='Street Address' value = {this.state.streetAddress} name='streetAddress' onChange={this.handleChange}/
-                    ><br></br><br></br>
+                    <input 
+                        type='text' 
+                        name='streetAddress' 
+                        value = {streetAddress.value}  
+                        placeholder='Street Address' 
+                        className={classnames(
+                            'form-control',
+                            { 'is-valid': streetAddress.error === false },
+                            { 'is-invalid': streetAddress.error}
+                        )}
+                        onChange={e => 
+                            this.handleChange(validateFields.validateStreetAddress, e)
+                        }
+                        onBlur={e =>
+                        this.handleBlur(validateFields.validateStreetAddress, e)}
+                    />
+                    <br></br><br></br>
                     <label>City:</label>
-                    <input type='text' placeholder='City' value = {this.state.city} name='city' onChange={this.handleChange}/>
-                    <label>   State:</label>
-                    <input type='text' placeholder='State' value = {this.state.state} name='state' onChange={this.handleChange}/>
-                    <label>   Area Code:</label>
-                    <input type='text' placeholder='Area Code' value = {this.state.zipCode} name='zipCode' onChange={this.handleChange}/>
+                    <input 
+                        type='text' 
+                        name='city' 
+                        value = {city.value}  
+                        placeholder='City' 
+                        className={classnames(
+                            'form-control',
+                            { 'is-valid': city.error === false },
+                            { 'is-invalid': city.error}
+                        )}
+                        onChange={e => 
+                            this.handleChange(validateFields.validateCity, e)
+                        }
+                        onBlur={e =>
+                        this.handleBlur(validateFields.validateCity, e)}
+                    />
+                    <label>State:</label>
+                    <input 
+                        type='text' 
+                        name='state' 
+                        value = {state.value}  
+                        placeholder='state' 
+                        className={classnames(
+                            'form-control',
+                            { 'is-valid': state.error === false },
+                            { 'is-invalid': state.error}
+                        )}
+                        onChange={e => 
+                            this.handleChange(validateFields.validateState, e)
+                        }
+                        onBlur={e =>
+                        this.handleBlur(validateFields.validateState, e)}
+                    />
+                    <label>Zip Code:</label>
+                    <input 
+                        type='text' 
+                        name='zipCode' 
+                        value = {zipCode.value}  
+                        placeholder='Zip Code' 
+                        className={classnames(
+                            'form-control',
+                            { 'is-valid': zipCode.error === false },
+                            { 'is-invalid': zipCode.error}
+                        )}
+                        onChange={e => 
+                            this.handleChange(validateFields.validateZipCode, e)
+                        }
+                        onBlur={e =>
+                        this.handleBlur(validateFields.validateZipCode, e)}
+                    />
                     <br></br><br></br><br></br>
                     <button
                         type="submit"
