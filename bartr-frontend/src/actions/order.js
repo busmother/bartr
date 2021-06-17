@@ -10,29 +10,27 @@ export function fetchOrders(user_id){
     }
 }
 
-export const addOrder = (data) => {
+export const addOrder = (data, user_id, order_id) => {
     return (dispatch) => {
-        fetch('http://localhost:3000/api/v1/orders', {
+        fetch(`http://localhost:3000/api/v1/users/${user_id}/orders/${order_id}`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             }, 
-            method: 'POST',
+            method: 'PATCH',
             body: JSON.stringify({
-                // order: { 
-                //     user_id: {user_id: user.id},
-                //     open: {open: true},
-                //     recipient: {recipient: recipient},
-                //     street_address: {street_address: street_address},
-                //     city: {city: city},
-                //     state: {state: state},
-                //     area_code: {area_code: area_code}
-                // },
-                // user: {username: user}
+                    open: false,
+                    recipient: data.recipient,
+                    street_address: data.streetAddress,
+                    city: data.city,
+                    state: data.state,
+                    zip_code: data.zipCode
             })
         })
         .then(response => response.json())
+        .then(order => console.log("order from fetch", order))
         .then(order => dispatch({type: 'ADD_ORDER', payload: order}))
+        .catch(error=>console.log("error", error))
     }
 }
 

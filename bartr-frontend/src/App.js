@@ -12,6 +12,7 @@ import { clearOrders } from './actions/order'
 import Button from './components/Button'
 import LoginComponent from './components/Login'
 import OrdersContainer from './components/OrdersContainer'
+import Checkout from './components/Checkout'
 
 
 class App extends Component {
@@ -32,10 +33,10 @@ class App extends Component {
 
     logoutSequence = () => {
         this.toggleLoginPop()
-        this.props.clearOrders(); // changes state to orders = [] 
-        this.props.clearItems(); // changes state to items = []
-        this.props.clearProducts(); // changes state to products = []
-        this.props.logout(); //sets status to idle
+        this.props.clearOrders();
+        this.props.clearItems();
+        this.props.clearProducts();
+        this.props.logout();
         
     }
 
@@ -59,8 +60,8 @@ class App extends Component {
                 <ul className="nav-list">
                     <li className="nav-link"><Link to="/products">Products </Link></li>
                     <li className="nav-link"><Link to="/cart">Cart </Link></li>
-                    <li className="nav-link">Checkout</li>
-                    <li className="nav-link"> <Link to="/orders">Past Orders</Link></li>
+                    <li className="nav-link"><Link to="/checkout">Checkout</Link></li>
+                    <li className="nav-link"><Link to="/past-orders">Past Orders</Link></li>
                     <li className="nav-link"><Button handleClick={() => {
                                                         this.logoutSequence(); 
                                                         }} 
@@ -70,9 +71,10 @@ class App extends Component {
                 </nav>
                 <div className="main">
                 <Switch>
+                    <Route path = '/products' component = {ProductsContainer}/> 
                     <Route path = '/cart' component = {Cart}/>
-                    <Route path = '/products' component = {ProductsContainer}/>
-                    <Route path = '/orders' component = {OrdersContainer}/>
+                    <Route path = '/checkout' component = {Checkout}/>
+                    <Route path = '/past-orders' component = {OrdersContainer}/>
                     <Route path = '/login' component = {LoginComponent}/>
                 </Switch>
             </div>
