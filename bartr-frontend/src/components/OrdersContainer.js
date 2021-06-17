@@ -14,7 +14,7 @@ class OrdersContainer extends React.Component {
         return(
             <div>
                 <Orders orders={this?.props?.orders?.filter(order => {
-                    return order.attributes.open === false
+                    return order?.attributes?.open === false
                 })} />
             </div>
         )

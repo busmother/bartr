@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addOrder } from '../actions/order'
+import { closeOrder, newOrder } from '../actions/order'
 
 class Checkout extends Component {
 
@@ -9,7 +9,7 @@ class Checkout extends Component {
         streetAddress: '',
         city: '',
         state: '',
-        areaCode: ''
+        zipCode: ''
     }
 
     handleChange = (event) => {
@@ -20,7 +20,8 @@ class Checkout extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.addOrder(this.state, this.props.user_id, this.props.order_id)
+        this.props.closeOrder(this.state, this.props.user_id, this.props.order_id)
+        this.props.newOrder(this.props.user_id)
         // this.setState({
         //     recipient: '',
         //     streetAddress: '',
@@ -66,4 +67,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { addOrder })(Checkout)
+export default connect(mapStateToProps, { closeOrder, newOrder })(Checkout)

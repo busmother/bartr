@@ -17,10 +17,6 @@ class Cart extends Component {
         this.props.fetchItems(user_id, open_order_id)
     }
 
-    checkoutClick = (e) => {
-        e.preventDefault();
-    }
-
     removeClick = (e, item_id) => {
         e.preventDefault();
         this.props.removeItem(this.props.user_id, this.props.open_order_id, item_id)
@@ -55,7 +51,6 @@ class Cart extends Component {
                 </ul>
                 </CSSTransition>
                 <em>{this.cartTotal()}</em><br></br>
-                <Button handleClick={this.checkoutClick} label="Checkout"/>
             </div>
         )
     }
