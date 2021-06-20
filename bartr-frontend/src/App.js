@@ -8,7 +8,8 @@ import PopUp from './components/PopUp'
 
 import ProductsContainer from './components/ProductsContainer'
 import { connect } from 'react-redux'
-import { clearOrders } from './actions/order'
+import { clearOrders, fetchOrders } from './actions/order'
+import { fetchItems } from './actions/item'
 import Button from './components/Button'
 import LoginComponent from './components/Login'
 import OrdersContainer from './components/OrdersContainer'
@@ -29,6 +30,13 @@ class App extends Component {
         this.setState(state => ({
             loggedIn: !state.loggedIn
         }));
+    }
+
+    loginSequence = () => {
+        let user_id = this.props.user_id
+        let open_order_id = this.props.open_order_id
+        this.props.fetchOrders(user_id)
+        this.props.fetchItems(user_id, open_order_id)
     }
 
     logoutSequence = () => {
@@ -60,8 +68,8 @@ class App extends Component {
                 <ul className="nav-list">
                     <li className="nav-link"><Link to="/products">Products </Link></li>
                     <li className="nav-link"><Link to="/cart">Cart </Link></li>
-                    <li className="nav-link"><Link to="/checkout">Checkout</Link></li>
                     <li className="nav-link"><Link to="/past-orders">Past Orders</Link></li>
+                    <li className="nav-link"><Link to="/checkout">Checkout</Link></li>
                     <li className="nav-link"><Button handleClick={() => {
                                                         this.logoutSequence(); 
                                                         }} 
@@ -92,6 +100,8 @@ class App extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        fetchOrders: () => dispatch({type: 'FETCH_ORDERS'}),
+        fetchItems: () => dispatch({type: 'FETCH_ITEMS'}),
         clearOrders: () => dispatch({type: 'CLEAR_ORDERS'}),
         clearItems: () => dispatch({type: 'CLEAR_ITEMS'}),
         clearProducts: () => dispatch({type: 'CLEAR_PRODUCTS'}),
