@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { fetchOrders, clearOrders } from '../actions/order'
 import { fetchItems } from '../actions/item'
 import Orders from './Orders'
+import './orders-container-stylesheet.css'
 
 class OrdersContainer extends React.Component {
 
@@ -15,7 +16,7 @@ class OrdersContainer extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="container">
                 <Orders orders={this?.props?.orders?.filter(order => {
                     return order?.attributes?.open === false
                 })} />
