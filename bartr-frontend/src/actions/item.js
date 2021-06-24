@@ -11,6 +11,7 @@ export function fetchItems(user_id, order_id){
 }
 
 export const addItem = (data, user_id, order_id) => { 
+    console.log()
     return (dispatch) => {
         fetch(`http://localhost:3000/api/v1/users/${user_id}/orders/${order_id}/items`, {
             headers: {
@@ -39,6 +40,12 @@ export const removeItem = (user_id, order_id, item_id) => {
         })
         .then(dispatch({type: 'REMOVE_ITEM', payload: item_id}))
         .catch(error=>console.log("error", error))
+    }
+}
+
+export const clearItems = () => {
+    return (dispatch) => {
+        dispatch({type: 'CLEAR_ITEMS'})
     }
 }
 

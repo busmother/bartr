@@ -8,12 +8,14 @@ import PopUp from './components/PopUp'
 
 import ProductsContainer from './components/ProductsContainer'
 import { connect } from 'react-redux'
-import { clearOrders, fetchOrders } from './actions/order'
+import { fetchOrders, clearOrders } from './actions/order'
 import { fetchItems } from './actions/item'
 import Button from './components/Button'
 import LoginComponent from './components/Login'
 import OrdersContainer from './components/OrdersContainer'
 import Checkout from './components/Checkout'
+import CheckoutValidated from './components/CheckoutValidated'
+
 
 
 class App extends Component {
@@ -33,8 +35,11 @@ class App extends Component {
     }
 
     loginSequence = () => {
+        console.log("this.props from loginSequence", this.props)
+        console.log("loginSequence firing")
         let user_id = this.props.user_id
         let open_order_id = this.props.open_order_id
+        console.log("user_id and open_order_id", user_id, open_order_id)
         this.props.fetchOrders(user_id)
         this.props.fetchItems(user_id, open_order_id)
     }
@@ -54,6 +59,10 @@ class App extends Component {
             }
         }
 
+    componentWillUpdate() {
+        this.loginSequence()
+    } 
+
     render(){
         return(
             <Router>
@@ -67,7 +76,7 @@ class App extends Component {
                 <br></br>
                 <ul className="nav-list">
                     <li className="nav-link"><Link to="/products">Products </Link></li>
-                    <li className="nav-link"><Link to="/cart">Cart </Link></li>
+                    {/* <li className="nav-link"><Link to="/cart">Cart </Link></li> */}
                     <li className="nav-link"><Link to="/past-orders">Past Orders</Link></li>
                     <li className="nav-link"><Link to="/checkout">Checkout</Link></li>
                     <li className="nav-link"><Button handleClick={() => {
@@ -81,7 +90,7 @@ class App extends Component {
                 <Switch>
                     <Route path = '/products' component = {ProductsContainer}/> 
                     <Route path = '/cart' component = {Cart}/>
-                    <Route path = '/checkout' component = {Checkout}/>
+                    <Route path = '/checkout' component = {CheckoutValidated}/>
                     <Route path = '/past-orders' component = {OrdersContainer}/>
                     <Route path = '/login' component = {LoginComponent}/>
                 </Switch>
@@ -112,7 +121,9 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = state => {
     return {
         loggedIn: state?.user?.loggedIn,
-        user: state.user
+        user: state.user,
+        user_id: state?.user?.user?.data?.id,
+        current_order_id: state?.user?.user?.data?.current_order_id
     }
 }
 

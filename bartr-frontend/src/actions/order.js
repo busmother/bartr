@@ -33,7 +33,6 @@ export const closeOrder = (data, user_id, order_id) => {
 }
 
 export const clearOrders = () => {
-    console.log("you hit clearOrders action")
     return (dispatch) => {
         dispatch({type: "CLEAR_ORDERS"})
     }

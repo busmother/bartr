@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {fetchOrders, clearOrders} from '../actions/order'
+import { fetchOrders, clearOrders } from '../actions/order'
+import { fetchItems } from '../actions/item'
 import Orders from './Orders'
 
 class OrdersContainer extends React.Component {
@@ -8,6 +9,8 @@ class OrdersContainer extends React.Component {
     componentDidMount() {
         let user_id = this.props.user_id
         this.props.fetchOrders(user_id)
+        let open_order_id = this.props.open_order_id
+        this.props.fetchItems(user_id, open_order_id)
     }
 
     render() {
@@ -28,4 +31,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {fetchOrders, clearOrders})(OrdersContainer)
+export default connect(mapStateToProps, {fetchOrders, fetchItems, clearOrders})(OrdersContainer)
