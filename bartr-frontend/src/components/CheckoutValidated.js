@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { closeOrder } from '../actions/order'
-// import { classnames } from 'classnames'
-// import { validateFields } from './Validator'
+import { clearItems } from '../actions/item'
 import { FormErrors } from './FormErrors'
-// import ‘bootstrap/dist/css/bootstrap.css’;
-// import ‘bootstrap/dist/css/bootstrap-theme.css’;
 
 const initialState = {
     recipient: '',
@@ -20,8 +17,6 @@ const initialState = {
     zipCodeValid: false,
     formErrors: {recipient: '', streetAddress: '', city: '', state: '', zipCode: ''}
 };
-
-// const classname = require('classnames')
 
 class CheckoutValidated extends Component {
 
@@ -90,6 +85,8 @@ class CheckoutValidated extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.closeOrder(this.state, this.props.user_id, this.props.order_id)
+        this.setState(initialState);
+        this.props.clearItems()
     }
 
     render(){
@@ -171,7 +168,7 @@ class CheckoutValidated extends Component {
                 </div>
                 <br></br>
                 <div className = "panel panel-default">
-                    <FormErrors formErrors={this.state.formErrors} />
+                    <em><FormErrors formErrors={this.state.formErrors} /></em>
                 </div>
                     <button
                         type="submit"
@@ -196,4 +193,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { closeOrder })(CheckoutValidated)
+export default connect(mapStateToProps, { closeOrder, clearItems })(CheckoutValidated)
