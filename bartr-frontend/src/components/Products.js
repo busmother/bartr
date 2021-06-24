@@ -3,7 +3,6 @@ import {Grid} from '@material-ui/core';
 import Product from './Product';
 import './products-stylesheet.css'
 
-
 const Products = (props) => {
 
     return(

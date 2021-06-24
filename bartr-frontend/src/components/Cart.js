@@ -33,7 +33,7 @@ class Cart extends Component {
         }
     }
     
-    render(props){ 
+    render(){ 
         return(
             <div>
                 <em><p className="cart-header"> Your cart:</p></em>

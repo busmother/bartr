@@ -19,7 +19,6 @@ const Product = ({ product }) => {
         <Button handleClick={() => dispatch(addItem(product, user_id, open_order_id))} label="Add to cart"> </Button>
     </div>
     )
-
 }
 
 Product.defaultProps = {

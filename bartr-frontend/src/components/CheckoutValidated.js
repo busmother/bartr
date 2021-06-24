@@ -172,7 +172,7 @@ class CheckoutValidated extends Component {
                 </div>
                     <button
                         type="submit"
-                        className="btn btn-primary"
+                        className="button"
                         disabled={!this.state.formValid}
                     >
                         Submit Order

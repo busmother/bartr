@@ -16,8 +16,6 @@ import OrdersContainer from './components/OrdersContainer'
 import Checkout from './components/Checkout'
 import CheckoutValidated from './components/CheckoutValidated'
 
-
-
 class App extends Component {
 
     constructor(props) {
@@ -50,7 +48,6 @@ class App extends Component {
         this.props.clearItems();
         this.props.clearProducts();
         this.props.logout();
-        
     }
 
     greeting = () => { 
@@ -76,7 +73,6 @@ class App extends Component {
                 <br></br>
                 <ul className="nav-list">
                     <li className="nav-link"><Link to="/products">Products </Link></li>
-                    {/* <li className="nav-link"><Link to="/cart">Cart </Link></li> */}
                     <li className="nav-link"><Link to="/past-orders">Past Orders</Link></li>
                     <li className="nav-link"><Link to="/checkout">Checkout</Link></li>
                     <li className="nav-link"><Button handleClick={() => {
@@ -92,7 +88,6 @@ class App extends Component {
                     <Route path = '/cart' component = {Cart}/>
                     <Route path = '/checkout' component = {CheckoutValidated}/>
                     <Route path = '/past-orders' component = {OrdersContainer}/>
-                    <Route path = '/login' component = {LoginComponent}/>
                 </Switch>
             </div>
                 <aside className="sidebar">
