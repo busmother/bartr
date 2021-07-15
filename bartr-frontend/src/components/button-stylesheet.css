@@ -11,7 +11,7 @@
   box-shadow: 3px 4px  rgb(226, 226, 0);
 }
 
-.disabled {
+.button.disabled {
   opacity: 0.2;
   cursor: not-allowed
 }
