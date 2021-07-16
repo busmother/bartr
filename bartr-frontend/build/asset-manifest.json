@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/bartr/static/css/main.db352283.chunk.css",
+    "main.js": "/bartr/static/js/main.80827bfa.chunk.js",
+    "main.js.map": "/bartr/static/js/main.80827bfa.chunk.js.map",
+    "runtime-main.js": "/bartr/static/js/runtime-main.59568fbd.js",
+    "runtime-main.js.map": "/bartr/static/js/runtime-main.59568fbd.js.map",
+    "static/js/2.0ff4df4a.chunk.js": "/bartr/static/js/2.0ff4df4a.chunk.js",
+    "static/js/2.0ff4df4a.chunk.js.map": "/bartr/static/js/2.0ff4df4a.chunk.js.map",
+    "index.html": "/bartr/index.html",
+    "static/css/main.db352283.chunk.css.map": "/bartr/static/css/main.db352283.chunk.css.map",
+    "static/js/2.0ff4df4a.chunk.js.LICENSE.txt": "/bartr/static/js/2.0ff4df4a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.59568fbd.js",
+    "static/js/2.0ff4df4a.chunk.js",
+    "static/css/main.db352283.chunk.css",
+    "static/js/main.80827bfa.chunk.js"
+  ]
+}
