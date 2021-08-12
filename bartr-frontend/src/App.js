@@ -11,7 +11,6 @@ import { connect } from 'react-redux'
 import { fetchOrders, clearOrders } from './actions/order'
 import { fetchItems } from './actions/item'
 import Button from './components/Button'
-import ButtonFunctional from './components/Button-functional'
 import LoginComponent from './components/Login'
 import OrdersContainer from './components/OrdersContainer'
 import Checkout from './components/Checkout'
@@ -76,7 +75,7 @@ class App extends Component {
                     <li className="nav-link"><Link to="/products">Products </Link></li>
                     <li className="nav-link"><Link to="/past-orders">Past Orders</Link></li>
                     <li className="nav-link"><Link to="/checkout">Checkout</Link></li>
-                    <li className="nav-link"><ButtonFunctional handleClick={() => {
+                    <li className="nav-link"><Button handleClick={() => {
                                                         this.logoutSequence(); 
                                                         }} 
                                                         label = "Logout" /></li>
