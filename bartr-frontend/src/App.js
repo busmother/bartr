@@ -33,11 +33,8 @@ class App extends Component {
     }
 
     loginSequence = () => {
-        console.log("this.props from loginSequence", this.props)
-        console.log("loginSequence firing")
         let user_id = this.props.user_id
         let open_order_id = this.props.open_order_id
-        console.log("user_id and open_order_id", user_id, open_order_id)
         this.props.fetchOrders(user_id)
         this.props.fetchItems(user_id, open_order_id)
     }
@@ -113,7 +110,7 @@ const mapDispatchToProps = (dispatch) => {
     }
  }
 
-const mapStateToProps = state => {
+const  = state => {
     return {
         loggedIn: state?.user?.loggedIn,
         user: state.user,
