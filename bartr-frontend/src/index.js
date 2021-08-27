@@ -6,7 +6,6 @@ import thunk from 'redux-thunk';
 import combineReducers from './reducers/index'
 
 import App from './App';
-import AppFunctional from './AppFunctional'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; 
 
@@ -15,7 +14,7 @@ let store = createStore(combineReducers, composeEnhancers(applyMiddleware(thunk)
 ReactDOM.render(
 
     <Provider store={store}>
-        <AppFunctional />
+        <App />
     </Provider>
 , 
 document.getElementById('root'));
