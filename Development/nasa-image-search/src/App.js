@@ -1,11 +1,11 @@
 import logo from './logo.svg';
-import ImageSearch from '/components/ImageSearch'
+import ResultsConainer from '/containers/ResultsContainer'
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <ImageSearch fetchImages={this.fetchImages} />
+      <ResultsContainer />
     </div>
   );
 }
