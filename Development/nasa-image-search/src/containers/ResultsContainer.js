@@ -9,7 +9,8 @@ class ResultsContainer extends Component {
     render(){
         return (
             <div>
-
+                <ImageSearch fetchImages={this.fetchImages} />
+                <Results images={this.state.images}
             </div>
         )
     }
