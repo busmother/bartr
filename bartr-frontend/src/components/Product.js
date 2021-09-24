@@ -3,8 +3,6 @@ import Button from './Button'
 import './product-stylesheet.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { addItem } from '.././actions/item'
-import Counter from './Counter'
-
 
 const Product = ({ product }) => {
     const dispatch = useDispatch()
